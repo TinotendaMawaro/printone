@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print One | Premium Printing, Signage & Branding Solutions - Harare, Zimbabwe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#bae0fd',
+                            300: '#7cc8fc', 400: '#36b0fa', 500: '#0c94eb',
+                            600: '#0077cd', 700: '#005fa7', 800: '#05518a',
+                            900: '#0a4373', 950: '#072b4c',
+                        },
+                        accent: { blue: '#0284C7', glow: '#38BDF8' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 119, 205, 0.08)',
+                        'glass-hover': '0 12px 40px 0 rgba(12, 148, 235, 0.2)',
+                        'glow': '0 0 25px rgba(12, 148, 235, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #0F172A; overflow-x: hidden; }
+        .glass-panel { background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(226,232,240,0.9); box-shadow: 0 10px 30px -10px rgba(0,80,160,0.06); }
+        .glass-panel-blue { background: rgba(240,247,255,0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(186,224,253,0.6); }
+        .glass-card { background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(226,232,240,0.9); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+        .glass-card:hover { transform: translateY(-5px); border-color: rgba(12,148,235,0.4); box-shadow: 0 20px 40px -15px rgba(12,148,235,0.15); }
+        .glass-nav { background: rgba(255,255,255,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(226,232,240,0.8); }
+        .text-gradient { background: linear-gradient(135deg, #005fa7 0%, #0c94eb 50%, #0284c7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bg-gradient-brand { background: linear-gradient(135deg, #005fa7 0%, #0c94eb 100%); }
+        .bg-mesh-white { background-color: #ffffff; background-image: radial-gradient(at 0% 0%, rgba(12,148,235,0.05) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(56,189,248,0.08) 0px, transparent 50%), radial-gradient(at 50% 100%, rgba(240,247,255,0.8) 0px, transparent 50%); }
+        .img-placeholder-slot { position: relative; background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 2px dashed #cbd5e1; transition: all 0.3s ease; }
+        .img-placeholder-slot:hover { border-color: #0c94eb; background: linear-gradient(135deg, #f0f7ff 0%, #e0effe 100%); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0077cd; }
+    </style>
+</head>
+<body class="bg-mesh-white min-h-screen text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <div class="bg-brand-950 text-white text-xs py-2 px-4 shadow-sm relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+                <span class="inline-flex items-center text-emerald-400 font-semibold gap-1.5"><i class="fa-solid fa-shield-check"></i> ZIMRA Tax Compliant (ITF263 Verified - 2026)</span>
+                <span class="hidden md:inline text-slate-500">|</span>
+                <span class="hidden md:inline-flex items-center gap-1.5 text-slate-300"><i class="fa-solid fa-award text-amber-400"></i> Established 2021 &bull; Harare, Zimbabwe</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:+263772719284" class="hover:text-brand-300 transition flex items-center gap-1"><i class="fa-solid fa-phone text-brand-400"></i> +263 772 719 284</a>
+                <a href="mailto:sales@printone.co.zw" class="hover:text-brand-300 transition hidden sm:flex items-center gap-1"><i class="fa-solid fa-envelope text-brand-400"></i> sales@printone.co.zw</a>
+                <button onclick="openModal('taxModal')" class="bg-brand-800 hover:bg-brand-700 text-white px-2.5 py-0.5 rounded text-[11px] font-medium transition flex items-center gap-1"><i class="fa-solid fa-file-check"></i> Tax Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-brand flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">P1</div>
+                    <div>
+                        <div class="text-2xl font-black tracking-tight text-slate-900 leading-none">PRINT<span class="text-brand-600">ONE</span></div>
+                        <p class="text-[10px] tracking-widest uppercase font-bold text-brand-700 mt-1">Possibilities Are Infinite...</p>
+                    </div>
+                </a>
+                <nav class="hidden lg:flex items-center gap-7">
+                    <a href="#about" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">About CEO</a>
+                    <a href="#services" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Services Directory</a>
+                    <a href="#projects" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Major Projects</a>
+                    <a href="#portfolio" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Gallery</a>
+                    <a href="#quote-calculator" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Instant Quote</a>
+                    <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Contact Us</a>
+                </nav>
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20would%20like%20to%20inquire%20about%20your%20printing%20and%20branding%20services." target="_blank" class="glass-panel text-slate-800 hover:text-brand-600 hover:border-brand-300 font-semibold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 transition shadow-sm"><i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i><span>WhatsApp Us</span></a>
+                    <a href="#quote-calculator" class="bg-gradient-brand hover:bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition transform active:scale-95 flex items-center gap-2"><i class="fa-solid fa-calculator"></i><span>Get Estimate</span></a>
+                </div>
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
+                    <i id="menu-icon-bars" class="fa-solid fa-bars text-xl"></i>
+                    <i id="menu-icon-x" class="fa-solid fa-xmark text-xl hidden"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">About Mr Robin Mawaro (CEO)</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Services Catalog (18 Categories)</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Big Projects Showcase</a>
+            <a href="#portfolio" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Branding Photo Gallery</a>
+            <a href="#quote-calculator" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Instant Price Estimator</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-600">Harare Office & Contact</a>
+            <div class="pt-2 grid grid-cols-2 gap-2">
+                <a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white font-semibold py-2 text-center rounded-xl text-xs flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="#quote-calculator" onclick="toggleMobileMenu()" class="bg-brand-600 text-white font-semibold py-2 text-center rounded-xl text-xs flex items-center justify-center gap-2"><i class="fa-solid fa-calculator"></i> Quick Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-white via-brand-50/40 to-white">
+        <div class="absolute top-10 left-10 w-96 h-96 bg-brand-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-blue text-brand-800 text-xs font-semibold shadow-sm border border-brand-200">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        <span class="font-bold">SIGNAGE &bull; PRINTING &bull; BRANDING</span>
+                        <span class="bg-brand-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-1">Harare, Zimbabwe</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.15] tracking-tight">Transforming Ideas Into <br class="hidden sm:inline" /><span class="text-gradient">Powerful Brand Expressions</span></h1>
+                    <p class="text-lg sm:text-xl font-bold text-brand-600 tracking-wide uppercase">"Possibilities Are Infinite..."</p>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">We are masters of concept and creative designing when it comes to branding. From 3D & 2D Signage, Nationwide Vehicle Wraps, and Billboards to Corporate Identity Materials & Premise Enhancements.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#services" class="w-full sm:w-auto bg-gradient-brand hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/20 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3"><span>Explore Services Catalog</span><i class="fa-solid fa-arrow-right-long text-sm"></i></a>
+                        <a href="#projects" class="w-full sm:w-auto glass-panel text-slate-800 hover:text-brand-600 font-bold px-7 py-4 rounded-xl border border-slate-200 hover:border-brand-300 transition flex items-center justify-center gap-2"><i class="fa-solid fa-award text-brand-500"></i><span>View Big Projects</span></a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 pt-6 max-w-xl mx-auto lg:mx-0 border-t border-slate-200">
+                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center"><div class="text-2xl sm:text-3xl font-black text-brand-600">500+</div><div class="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1">Branding Projects</div></div>
+                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center"><div class="text-2xl sm:text-3xl font-black text-brand-600">100%</div><div class="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1">Satisfaction Rate</div></div>
+                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center"><div class="text-2xl sm:text-3xl font-black text-brand-600">Nationwide</div><div class="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1">Coverage in Zim</div></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="glass-panel p-4 sm:p-6 rounded-3xl shadow-2xl relative z-10 border border-white">
+                            <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-100">
+                                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-rose-400"></span><span class="w-3 h-3 rounded-full bg-amber-400"></span><span class="w-3 h-3 rounded-full bg-emerald-400"></span><span class="text-xs font-bold text-slate-500 ml-2">Main Showcase Slot</span></div>
+                                <span class="text-[10px] font-bold bg-brand-100 text-brand-700 px-2.5 py-0.5 rounded-full uppercase">3D & 2D Signage</span>
+                            </div>
+                            <div class="img-placeholder-slot rounded-2xl h-80 flex flex-col items-center justify-center p-6 text-center group cursor-pointer overflow-hidden relative shadow-inner" onclick="openImageModal('High-Impact Outdoor & 3D Signage', 'Premium illuminated 3D channel lettering and facade branding manufactured by Print One.', '3D & 2D Signage')">
+                                <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80" alt="Print One Main Showcase" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" onerror="this.style.display='none'">
+                                <div class="relative z-10 bg-slate-900/70 backdrop-blur-md text-white p-4 rounded-2xl border border-white/20 max-w-xs shadow-lg">
+                                    <div class="w-10 h-10 rounded-full bg-brand-500 mx-auto flex items-center justify-center mb-2"><i class="fa-solid fa-camera text-base text-white"></i></div>
+                                    <h4 class="font-bold text-sm">Main Showcase Slot</h4>
+                                    <p class="text-xs text-slate-200 mt-1">Click to expand image preview mockup</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 grid grid-cols-2 gap-3">
+                                <div class="bg-white/90 p-3 rounded-xl border border-slate-100 text-xs flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-certificate"></i></div><div><div class="font-bold text-slate-800">ITF263 Verified</div><div class="text-[10px] text-slate-500">ZIMRA Compliant</div></div></div>
+                                <div class="bg-white/90 p-3 rounded-xl border border-slate-100 text-xs flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-truck-fast"></i></div><div><div class="font-bold text-slate-800">Rapid Delivery</div><div class="text-[10px] text-slate-500">All Zim Cities</div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 sm:py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="glass-panel p-6 rounded-3xl relative z-10 border border-slate-200 shadow-xl">
+                            <div class="img-placeholder-slot rounded-2xl h-96 flex flex-col items-center justify-center p-6 text-center group cursor-pointer overflow-hidden relative shadow-md" onclick="openImageModal('Mr Robin Mawaro - CEO Print One', 'Results-driven Young Entrepreneur & Founder of Print One. Holder of HND Management of Information Systems (IMIS).', 'Executive Leadership')">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Mr Robin Mawaro CEO" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+                                <div class="relative z-10 bg-slate-900/75 backdrop-blur-md text-white p-5 rounded-2xl border border-white/20 max-w-xs">
+                                    <div class="w-12 h-12 rounded-full bg-brand-500 mx-auto flex items-center justify-center mb-2"><i class="fa-solid fa-user-tie text-xl text-white"></i></div>
+                                    <h4 class="font-bold text-base">MR ROBIN MAWARO</h4>
+                                    <p class="text-xs text-brand-300 font-semibold mt-0.5">CEO & FOUNDER</p>
+                                    <p class="text-[11px] text-slate-300 mt-2">Holder of HND Management of Information Systems (IMIS)</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-brand-50 rounded-xl border border-brand-100 flex items-center justify-between text-xs"><span class="font-bold text-brand-900"><i class="fa-solid fa-graduation-cap text-brand-600 mr-1.5"></i> HND MIS Qualified</span><span class="text-brand-700 font-medium">Harare, Zimbabwe</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider">Executive Profile</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">Meet <span class="text-gradient">Mr. Robin Mawaro</span><span class="block text-xl font-semibold text-slate-600 mt-1">CEO & Founder of Print One</span></h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">A results-driven Young Entrepreneur and CEO of Print One, holder of an <strong class="text-slate-900">HND in Management of Information Systems (IMIS)</strong>. Since establishing Print One in 2021 in Harare, Robin has specialized in printing and branding solutions with a passion for helping businesses stand out through high-quality visual identity materials.</p>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">He is highly experienced in delivering creative and professional services such as 3D & 2D Signage, Billboards & Banners, Flyers, T-shirt branding, Packaging, Promotional items, and Corporate branding materials. With a strong eye for detail and commitment to excellence, he combines innovation, quality production, and customer-focused service to meet the branding needs of individuals, startups, and established organizations.</p>
+                    <div class="p-4 rounded-2xl glass-panel-blue border border-brand-200 relative text-slate-800 text-sm"><div class="flex items-start gap-3"><i class="fa-solid fa-quote-left text-brand-500 text-2xl mt-1"></i><div><p class="font-medium text-slate-700">"His goal is to transform ideas into powerful brand expressions that leave lasting impressions and drive business growth. Known for reliability, creativity, and professionalism, he continues to build a reputation as a trusted name in the printing and branding industry."</p></div></div></div>
+                    <div class="flex flex-wrap items-center gap-3 pt-2 text-xs">
+                        <a href="tel:+263772719284" class="bg-slate-900 text-white hover:bg-brand-700 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-phone"></i> Call Direct: +263 772 719 284</a>
+                        <a href="mailto:sales@printone.co.zw" class="bg-brand-50 text-brand-700 border border-brand-200 hover:bg-brand-100 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-envelope"></i> sales@printone.co.zw</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12"><span class="text-brand-400 font-bold uppercase tracking-widest text-xs">Corporate Foundation</span><h2 class="text-3xl font-extrabold mt-1">Vision, Mission & Core Values</h2><div class="w-16 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-900/80 backdrop-blur-md p-8 rounded-3xl border border-slate-800 hover:border-brand-500 transition duration-300"><div class="w-14 h-14 rounded-2xl bg-brand-600/30 text-brand-400 flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-eye"></i></div><h3 class="text-xl font-bold mb-3 text-white">Our Vision</h3><p class="text-slate-300 text-sm leading-relaxed">To be the most trusted media and advertising company in Southern Africa, recognized for setting benchmark standards in high-impact branding solutions.</p></div>
+                <div class="bg-slate-900/80 backdrop-blur-md p-8 rounded-3xl border border-slate-800 hover:border-brand-500 transition duration-300"><div class="w-14 h-14 rounded-2xl bg-brand-600/30 text-brand-400 flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bullseye"></i></div><h3 class="text-xl font-bold mb-3 text-white">Our Mission</h3><p class="text-slate-300 text-sm leading-relaxed">To fortify brands through quality engagement and visible display, empowering businesses to captivate their target audience with irresistible presentations.</p></div>
+                <div class="bg-slate-900/80 backdrop-blur-md p-8 rounded-3xl border border-slate-800 hover:border-brand-500 transition duration-300"><div class="w-14 h-14 rounded-2xl bg-brand-600/30 text-brand-400 flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-gem"></i></div><h3 class="text-xl font-bold mb-3 text-white">Our Core Values</h3><ul class="text-slate-300 text-sm space-y-2.5"><li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400 text-xs"></i> Personal Competence</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400 text-xs"></i> Uncompromising Integrity</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400 text-xs"></i> Inspired Creativity</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400 text-xs"></i> Continuous Innovativeness</li><li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-400 text-xs"></i> Absolute Trustworthiness</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14"><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Official Company Profile Catalog</span><h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Complete Printing & Branding Solutions</h2><p class="text-slate-600 mt-3 text-sm sm:text-base">We re-imagine and represent your brand impressions with your target market in mind. Our branding designs and presentations can hardly be resisted — we are simply the best!</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Indoor & Outdoor Display Systems', 'Roll Up Banners, Telescopic Banners, Tear Drop Banners, S-Shaped Banners, Parasol Umbrellas, Backdrop Banners, Branded Gazebos.', 'Display Systems')"><img src="https://images.unsplash.com/photo-1542744094-3a317272018a?auto=format&fit=crop&w=600&q=80" alt="Indoor Outdoor Displays" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Display Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 3 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Indoor & Outdoor Display</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Roll Up Banners, Telescopic Banners, Tear Drop Banners, S-shaped Banners, Parasol Umbrellas, Backdrop Banners, and Branded Event Gazebos.</p></div><button onclick="selectServiceForQuote('Indoor & Outdoor Display')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Digital Printing Solutions', 'Executive Business Cards, Glossy Brochures, Promotional Flyers, Corporate Letterheads, Receipt Books, Custom Product Label Stickers.', 'Digital Printing')"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Digital Printing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Print Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 4 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Digital Printing</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-finish Business Cards, Brochures, Flyers, Executive Letterheads, Receipt/Invoice Books, and Custom Product Label Stickers.</p></div><button onclick="selectServiceForQuote('Digital Printing')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Vehicle & Fleet Branding', 'Full vehicle body wraps, partial vinyl graphics, magnetic door signs, contravision window branding.', 'Vehicle Branding')"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Vehicle Branding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Vehicle Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Pages 5 & 6 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Vehicle Branding</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Full fleet wraps, partial wraps, delivery van graphics, contravision window wraps, and magnetic door panels for high mobile exposure.</p></div><button onclick="selectServiceForQuote('Vehicle Branding')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Billboards & Outdoor Banners', 'Highway billboard skin prints, heavy duty PVC flex banners, mesh building wraps, street poles.', 'Outdoor Media')"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Billboards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Billboard Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 7 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Billboards & Outdoor Banners</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Heavy-duty weather-proof PVC flex banners, highway billboard skin prints, mesh building wraps, and large format outdoor advertising media.</p></div><button onclick="selectServiceForQuote('Billboards & Outdoor Banners')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Corporate Gifts & Apparel Branding', 'Branded T-shirts, corporate gifts, promotional mugs, pens, notebooks, umbrella gifts, executive gift sets.', 'Corporate Gifts')"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80" alt="Corporate Gifts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Gifts Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 8 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Corporate Gifts & T-Shirts</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Custom T-shirt screen printing, embroidered corporate apparel, executive gifts, promotional mugs, pens, diaries, and branded merchandise.</p></div><button onclick="selectServiceForQuote('Corporate Gifts & Apparel')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Name Tags & Domed Resin Stickers', 'Executive resin domed stickers, magnetic corporate name tags, equipment badges.', 'Name Tags & Stickers')"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80" alt="Domed Stickers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Domed Badge Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 9 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Name Tags & Domed Stickers</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-gloss 3D resin domed stickers, magnetic staff name tags, durable product badges, and metallic label finishings.</p></div><button onclick="selectServiceForQuote('Name Tags & Domed Stickers')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('PVC ID Cards & Printed Lanyards', 'High durability PVC corporate security identity cards, membership cards, custom printed lanyards.', 'ID Systems')"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="PVC ID Cards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> PVC ID Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 10 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">PVC ID Cards & Lanyards</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Plastic PVC staff access cards, membership identity badges, custom printed branded lanyards, and card holders.</p></div><button onclick="selectServiceForQuote('PVC ID Cards')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('3D & 2D Signage Solutions', 'Illuminated LED channel lettering, acrylic cutouts, storefront facade boards, pylon signs, directional signs.', '3D & 2D Signage')"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> 3D Signage Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 11 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">3D & 2D Signage</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Illuminated LED acrylic channel letters, outdoor pylon signs, street directionals, shop facade boards, and lightboxes.</p></div><button onclick="selectServiceForQuote('3D & 2D Signage')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Gate Numbers & Architectural Signage', 'Custom acrylic and aluminum gate numbers, house plaques, estate directional signs.', 'Gate Signage')"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Gate Numbers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Gate Sign Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 12 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Gate Numbers Signage</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Bespoke laser-cut acrylic gate numbers, metal house plaques, office entrance numbers, and property boundary signs.</p></div><button onclick="selectServiceForQuote('Gate Numbers Signage')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Church Backdrops & Stage Design', 'Large scale tension fabric church backdrops, sermon stage media banners, conference stage graphics.', 'Stage Design')"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Church Stage Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Stage Backdrop Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 13 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Church Backdrops & Stage Design</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Custom church stage media backdrops, pulpit banners, conference podium wraps, and illuminated stage visual setups.</p></div><button onclick="selectServiceForQuote('Church Backdrops & Stage Design')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Window Frosting & Architectural Film', 'Privacy frosted film with computer-cut logos, decorative office glass panels, sandblast effect film.', 'Window Frosting')"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Window Frosting" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Window Frosting Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 14 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Window Frosting</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Architectural privacy frosted film, computer-cut sandblast vinyl with corporate logos, boardroom partition frosting.</p></div><button onclick="selectServiceForQuote('Window Frosting')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Custom Wallpapers & Branded Entrance Mats', 'Seamless custom office feature wall wallpapers, heavy duty coir/rubber branded entrance mats with company logos.', 'Premise Decor')"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Wallpapers and Mats" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Wallpaper & Mat Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Pages 15 & 16 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Wallpapers & Branded Mats</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-definition custom wall mural wallpapers and heavy-duty logo entrance door mats for corporate receptions.</p></div><button onclick="selectServiceForQuote('Wallpapers & Branded Mats')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 sm:py-24 bg-white relative border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14"><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Proven High-Profile Execution</span><h2 class="text-3xl font-extrabold text-slate-900 mt-1">Major Projects Spotlight</h2><p class="text-slate-600 text-sm mt-2">Print One has been trusted with big contracts across Zimbabwe by top tier corporations and municipalities:</p></div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Old Mutual (Omari) Nationwide Booths Branding', 'Complete nationwide customer service & agent booths branding and fabrication.', 'Big Projects')"><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" alt="Old Mutual Omari" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-emerald-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Nationwide Contract</span></div><h3 class="text-xl font-black text-slate-900">Old Mutual (Omari)</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Nationwide customer service and agent booths branding, engineered with durable UV vinyls and illuminated brand logos deployed across all major Zimbabwean urban hubs.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-emerald-500"></i> Zimbabwe-wide</span><span class="text-brand-600 font-bold">Turnkey Rollout</span></div></div>
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-brand-600 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('City Parking On-Street Signage', 'High visibility reflective metal parking signage posts for the entire City of Harare.', 'Big Projects')"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="City Parking Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-brand-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Capital City Signage</span></div><h3 class="text-xl font-black text-slate-900">City Parking Harare</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Manufactured and installed high-durability reflective metal on-street parking signage and directional posts across the entire Harare central business district.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-brand-500"></i> Greater Harare</span><span class="text-brand-600 font-bold">Reflective Metal</span></div></div>
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-indigo-500 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Truworths Rebranding Nationwide', 'Full retail store visual identity & facade rebranding nationwide.', 'Big Projects')"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Truworths Rebranding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-indigo-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Retail Chain Rebrand</span></div><h3 class="text-xl font-black text-slate-900">Truworths Zimbabwe</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Full retail store visual identity, shopfront 3D illuminated letters, in-store promotional displays, and facade rebranding for Truworths outlets nationwide.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-indigo-500"></i> All Outlets</span><span class="text-brand-600 font-bold">Fascia & Interior</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-16 sm:py-24 bg-slate-50/80 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Visual Proof</span><h2 class="text-3xl font-extrabold text-slate-900 mt-1">Branding Works Gallery</h2></div>
+                <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn active bg-brand-600 text-white px-4 py-2 rounded-xl transition">All Works</button>
+                    <button onclick="filterGallery('signage')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Signage</button>
+                    <button onclick="filterGallery('vehicle')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Vehicles</button>
+                    <button onclick="filterGallery('banners')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Banners</button>
+                    <button onclick="filterGallery('decor')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Decor</button>
+                </div>
+            </div>
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item signage glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('3D LED Illuminated Signboard', 'Precision cut acrylic channel lettering with internal LED backlighting.', 'Signage')"><img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">3D Signage</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Illuminated Storefront Facade</h4></div></div>
+                <div class="gallery-item vehicle glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Fleet Vehicle Wrap', 'High resolution vinyl vehicle graphic wrap for delivery vans.', 'Vehicle Branding')"><img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Fleet Wrap" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Vehicle Wrap</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Corporate Delivery Fleet</h4></div></div>
+                <div class="gallery-item banners glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Outdoor Teardrop & Gazebos', 'Heavy duty outdoor event display banners and branded gazebos.', 'Banners')"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Outdoor Banners" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Event Displays</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Teardrop Banners & Gazebos</h4></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote-calculator" class="py-16 sm:py-24 bg-gradient-to-br from-brand-950 via-slate-900 to-brand-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-5">
+                    <span class="bg-brand-500/20 text-brand-300 font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider border border-brand-500/30">Interactive Quote Estimator</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">Calculate Your Branding Budget</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">Select your required services from our official profile options to get an instant estimated project scope. Submit specs directly to CEO Mr. Robin Mawaro's sales desk on WhatsApp or Email!</p>
+                    <div class="space-y-3 text-xs text-slate-300 pt-2">
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10"><i class="fa-solid fa-bolt text-amber-400 text-lg"></i><span>Fast turnaround quotes delivered within minutes</span></div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10"><i class="fa-solid fa-shield-check text-emerald-400 text-lg"></i><span>Official ZIMRA Tax Compliant quotation documents (ITF263)</span></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl bg-slate-900/90 text-slate-100 border border-white/10 shadow-2xl">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Select Profile Service</label><select id="quote-service" onchange="calculateEstimate()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"><option value="3D & 2D Signage">3D & 2D Signage (Page 11)</option><option value="Vehicle Branding">Vehicle Branding Wraps (Pages 5-6)</option><option value="Billboards & Banners">Outdoor Billboards & Banners (Page 7)</option><option value="Digital Printing">Digital Printing (Page 4)</option><option value="Indoor & Outdoor Displays">Roll Up / Teardrop Banners (Page 3)</option><option value="Premise Decor">Window Frosting & Wallpapers (Pages 14-16)</option><option value="Corporate Gifts & T-Shirts">Corporate Gifts & T-Shirts (Page 8)</option><option value="PVC ID Cards">PVC ID Cards & Lanyards (Page 10)</option><option value="Gate Numbers Signage">Gate Numbers Signage (Page 12)</option><option value="Church Backdrops">Church Backdrops & Stage (Page 13)</option></select></div>
+                            <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Material / Specification</label><select id="quote-finish" onchange="calculateEstimate()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"><option value="Premium Outdoor Gloss Vinyl">Premium Outdoor Gloss Vinyl</option><option value="Illuminated LED Acrylic">Illuminated LED & Acrylic</option><option value="Reflective Heavy Duty Metal">Reflective Heavy Duty Metal</option><option value="Heavy Duty PVC Flex">Heavy Duty PVC Flex Banner</option><option value="Matte Window Frosting Film">Matte Window Frosting Film</option></select></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                            <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Est. Width (Meters)</label><input id="quote-width" type="number" min="1" value="2" oninput="calculateEstimate()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"></div>
+                            <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Est. Height (Meters)</label><input id="quote-height" type="number" min="1" value="1" oninput="calculateEstimate()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"></div>
+                            <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Quantity / Units</label><input id="quote-qty" type="number" min="1" value="1" oninput="calculateEstimate()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"></div>
+                        </div>
+                        <div class="bg-brand-950/80 p-5 rounded-2xl border border-brand-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+                            <div><div class="text-xs text-brand-300 font-semibold uppercase tracking-wider">Estimated Scope Cost</div><div id="estimate-price" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">USD $120.00 - $180.00</div><div class="text-[10px] text-slate-400 mt-0.5">*Standard fabrication & finishing. Subject to site assessment.</div></div>
+                            <button onclick="sendEstimateToWhatsApp()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm flex-shrink-0"><i class="fa-brands fa-whatsapp text-lg"></i><span>WhatsApp Specs Now</span></button>
+                        </div>
+                        <div class="text-center text-xs text-slate-400">Direct sales call: <a href="tel:+263772719284" class="text-brand-400 underline font-bold">+263 772 719 284</a> &bull; Email: <a href="mailto:sales@printone.co.zw" class="text-brand-400 underline font-bold">sales@printone.co.zw</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-600 text-white flex items-center justify-center text-2xl font-black flex-shrink-0 shadow-lg"><i class="fa-solid fa-file-contract"></i></div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap"><span class="text-xs font-extrabold uppercase tracking-widest text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">ZIMRA ITF263 Compliant (2026)</span><span class="text-xs text-slate-500 font-semibold">TIN: 2001355171</span></div>
+                        <h3 class="text-xl font-black text-slate-900 mt-1">Zimbabwe Revenue Authority Tax Clearance</h3>
+                        <p class="text-xs text-slate-600 mt-1">Taxpayer: <strong>SUNNY HUGS INVESTMENTS t/a Printone</strong> &bull; Validity: <strong>4 Jan 2026 – 4 Jul 2026</strong> &bull; Auth Code: <strong>49057012</strong></p>
+                    </div>
+                </div>
+                <button onclick="openModal('taxModal')" class="w-full md:w-auto bg-slate-900 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 flex-shrink-0 shadow-md"><i class="fa-solid fa-shield-check text-emerald-400"></i><span>View Official Certificate</span></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <div><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Harare Studio</span><h2 class="text-3xl font-black text-slate-900 mt-1">Get In Touch</h2><p class="text-slate-600 text-sm mt-2">Contact CEO Mr. Robin Mawaro and the Print One team today for all your visual identity, printing, and signage requirements.</p></div>
+                    <div class="space-y-4 text-xs">
+                        <div class="glass-card p-4 rounded-2xl flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-lg flex-shrink-0"><i class="fa-solid fa-location-dot"></i></div><div><h4 class="font-extrabold text-slate-900 text-sm">Physical Address</h4><p class="text-slate-600 mt-0.5">Cnr 2nd & George Silundika, Morgan House 3rd Floor, Room 1, Harare, Zimbabwe</p></div></div>
+                        <div class="glass-card p-4 rounded-2xl flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg flex-shrink-0"><i class="fa-solid fa-phone"></i></div><div><h4 class="font-extrabold text-slate-900 text-sm">Phone & WhatsApp Direct</h4><p class="text-slate-600 mt-0.5"><a href="tel:+263772719284" class="hover:text-brand-600 font-bold text-slate-900">+263 772 719 284</a></p></div></div>
+                        <div class="glass-card p-4 rounded-2xl flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-lg flex-shrink-0"><i class="fa-solid fa-envelope"></i></div><div><h4 class="font-extrabold text-slate-900 text-sm">Email Inquiries</h4><p class="text-slate-600 mt-0.5 space-x-2"><a href="mailto:sales@printone.co.zw" class="hover:text-brand-600 font-semibold">sales@printone.co.zw</a> &bull; <a href="mailto:info@printone.co.zw" class="hover:text-brand-600 font-semibold">info@printone.co.zw</a></p></div></div>
+                        <div class="glass-card p-4 rounded-2xl flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-lg flex-shrink-0"><i class="fa-solid fa-globe"></i></div><div><h4 class="font-extrabold text-slate-900 text-sm">Website & Social Handles</h4><p class="text-slate-600 mt-0.5">Web: <a href="http://www.printone.co.zw" class="font-bold text-brand-600 hover:underline">www.printone.co.zw</a> <br />Socials: <strong>@printonezw</strong> &bull; <strong>@Print One</strong></p></div></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200">
+                        <h3 class="text-xl font-black text-slate-900 mb-2">Send Us A Quick Message</h3>
+                        <p class="text-xs text-slate-500 mb-6">Fill out the form below to request a detailed quote or request a site visit in Harare.</p>
+                        <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div><label class="block text-xs font-bold text-slate-700 mb-1">Your Full Name *</label><input type="text" required placeholder="e.g. Tendai Moyo" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-brand-500"></div>
+                                <div><label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label><input type="tel" required placeholder="+263 7..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-brand-500"></div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div><label class="block text-xs font-bold text-slate-700 mb-1">Email Address</label><input type="email" placeholder="name@company.co.zw" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-brand-500"></div>
+                                <div><label class="block text-xs font-bold text-slate-700 mb-1">Service Required</label><select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-brand-500"><option>3D & 2D Signage</option><option>Vehicle Branding Wrap</option><option>Billboards & Banners</option><option>Digital Printing / Flyers</option><option>Corporate Gifts / T-Shirts</option><option>Premise Decor / Window Frosting</option></select></div>
+                            </div>
+                            <div><label class="block text-xs font-bold text-slate-700 mb-1">Project Details / Dimensions</label><textarea rows="4" required placeholder="Describe your branding needs, quantities, or site location in Harare..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-brand-500"></textarea></div>
+                            <button type="submit" class="w-full bg-gradient-brand hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2"><i class="fa-solid fa-paper-plane"></i><span>Send Inquiry To Print One</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-950 text-slate-300 py-12 border-t border-brand-900 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-brand-900">
+                <div class="space-y-3"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white font-black text-sm">P1</div><span class="text-xl font-black text-white">PRINT<span class="text-brand-400">ONE</span></span></div><p class="text-slate-400 text-xs leading-relaxed">Possibilities Are Infinite... Premier printing, signage, and visual identity house in Harare, Zimbabwe.</p><div class="text-[11px] text-slate-400">CEO: <strong>Mr. Robin Mawaro</strong> (HND MIS)</div></div>
+                <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Quick Navigation</h4><ul class="space-y-2 text-xs"><li><a href="#about" class="hover:text-brand-400 transition">About CEO</a></li><li><a href="#services" class="hover:text-brand-400 transition">18 Service Categories</a></li><li><a href="#projects" class="hover:text-brand-400 transition">Old Mutual & City Parking</a></li><li><a href="#quote-calculator" class="hover:text-brand-400 transition">Instant Quote Tool</a></li></ul></div>
+                <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Harare Office</h4><p class="text-slate-400 leading-relaxed">Cnr 2nd & George Silundika,<br />Morgan House 3rd Floor, Room 1,<br />Harare, Zimbabwe</p><p class="mt-2 font-bold text-white">+263 772 719 284</p></div>
+                <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Tax Compliance</h4><p class="text-slate-400">ZIMRA ITF263 Tax Compliant</p><p class="text-slate-400 mt-1">TIN: 2001355171</p><p class="text-slate-400">Sunny Hugs Investments t/a Printone</p><button onclick="openModal('taxModal')" class="mt-3 text-brand-400 hover:underline font-semibold flex items-center gap-1"><i class="fa-solid fa-file-lines"></i> View Tax Certificate</button></div>
+            </div>
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500"><div>&copy; 2026 Print One (Sunny Hugs Investments). All rights reserved.</div><div class="flex gap-4"><span>@printonezw</span><span>@Print One</span><span>www.printone.co.zw</span></div></div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 relative shadow-2xl border border-white">
+            <button onclick="closeModal('imageModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-xl font-bold p-2"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modalCategoryPill" class="inline-block bg-brand-100 text-brand-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase mb-2">Showcase Category</div>
+            <h3 id="modalTitle" class="text-xl font-black mb-2">Image Title</h3>
+            <div class="img-placeholder-slot rounded-2xl h-64 mb-4 flex items-center justify-center overflow-hidden relative border border-slate-200"><img id="modalImg" src="" alt="Modal View" class="w-full h-full object-cover"></div>
+            <p id="modalDesc" class="text-xs text-slate-600 leading-relaxed mb-4">Description detail...</p>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100"><span class="text-xs font-semibold text-slate-500">Print One Visual Media Slot</span><a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Inquire This Design</a></div>
+        </div>
+    </div>
+
+    <div id="taxModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel bg-white text-slate-900 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl border border-white">
+            <button onclick="closeModal('taxModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-xl font-bold p-2"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center border-b border-slate-200 pb-4 mb-4"><div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full mx-auto flex items-center justify-center text-xl mb-2"><i class="fa-solid fa-shield-check"></i></div><h3 class="text-lg font-black text-slate-900">Zimbabwe Revenue Authority</h3><p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mt-0.5">TAX CLEARANCE CERTIFICATE (ITF263)</p></div>
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 mb-4">
+                <div class="flex justify-between border-b border-slate-200/60 pb-1.5"><span class="text-slate-500">TIN:</span><span class="font-bold text-slate-900">2001355171</span></div>
+                <div class="flex justify-between border-b border-slate-200/60 pb-1.5"><span class="text-slate-500">Taxpayer Name:</span><span class="font-bold text-slate-900">SUNNY HUGS INVESTMENTS</span></div>
+                <div class="flex justify-between border-b border-slate-200/60 pb-1.5"><span class="text-slate-500">Trade Name:</span><span class="font-bold text-slate-900">Printone</span></div>
+                <div class="flex justify-between border-b border-slate-200/60 pb-1.5"><span class="text-slate-500">Issued Date:</span><span class="font-bold text-slate-900">04/01/2026</span></div>
+                <div class="flex justify-between border-b border-slate-200/60 pb-1.5"><span class="text-slate-500">Validity Period:</span><span class="font-bold text-emerald-600">4 January 2026 - 4 July 2026</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Authentication Code:</span><span class="font-bold text-brand-600">49057012</span></div>
+            </div>
+            <p class="text-[11px] text-slate-500 text-center leading-relaxed">Your Tax position is Satisfactory. No tax should be withheld. Verify on ZIMRA self-service portal: <strong>mytaxselfservice.zimra.co.zw</strong></p>
+            <button onclick="closeModal('taxModal')" class="mt-5 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs">Close Verification</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var iconBars = document.getElementById('menu-icon-bars');
+            var iconX = document.getElementById('menu-icon-x');
+            menu.classList.toggle('hidden');
+            iconBars.classList.toggle('hidden');
+            iconX.classList.toggle('hidden');
+        }
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        function openImageModal(title, desc, category, imgSrc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalCategoryPill').innerText = category;
+            var imgElement = document.getElementById('modalImg');
+            if (imgSrc) { imgElement.src = imgSrc; imgElement.style.display = 'block'; }
+            else { imgElement.src = 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80'; }
+            openModal('imageModal');
+        }
+        function selectServiceForQuote(serviceName) {
+            var serviceSelect = document.getElementById('quote-service');
+            for (var i = 0; i < serviceSelect.options.length; i++) {
+                if (serviceSelect.options[i].value.includes(serviceName) || serviceName.includes(serviceSelect.options[i].value)) { serviceSelect.selectedIndex = i; break; }
+            }
+            calculateEstimate();
+            document.getElementById('quote-calculator').scrollIntoView({ behavior: 'smooth' });
+        }
+        function calculateEstimate() {
+            var service = document.getElementById('quote-service').value;
+            var width = parseFloat(document.getElementById('quote-width').value) || 1;
+            var height = parseFloat(document.getElementById('quote-height').value) || 1;
+            var qty = parseInt(document.getElementById('quote-qty').value) || 1;
+            var area = width * height;
+            var baseRate = 35;
+            if (service.includes('Signage')) baseRate = 65;
+            else if (service.includes('Vehicle')) baseRate = 45;
+            else if (service.includes('Digital Printing')) baseRate = 15;
+            else if (service.includes('Billboards')) baseRate = 30;
+            else if (service.includes('Displays')) baseRate = 50;
+            var totalMin = Math.round(area * baseRate * qty * 0.9);
+            var totalMax = Math.round(area * baseRate * qty * 1.2);
+            document.getElementById('estimate-price').innerText = 'USD $' + totalMin + '.00 - $' + totalMax + '.00';
+        }
+        function sendEstimateToWhatsApp() {
+            var service = document.getElementById('quote-service').value;
+            var finish = document.getElementById('quote-finish').value;
+            var width = document.getElementById('quote-width').value;
+            var height = document.getElementById('quote-height').value;
+            var qty = document.getElementById('quote-qty').value;
+            var price = document.getElementById('estimate-price').innerText;
+            var msg = 'Hello Print One,%0A%0AI would like a formal quotation based on website estimator:%0A- Service: ' + service + '%0A- Finish: ' + finish + '%0A- Size: ' + width + 'm x ' + height + 'm%0A- Quantity: ' + qty + '%0A- Estimated Range: ' + price + '%0A%0APlease contact me.';
+            window.open('https://wa.me/263772719284?text=' + msg, '_blank');
+        }
+        function filterGallery(category) {
+            var items = document.querySelectorAll('.gallery-item');
+            var btns = document.querySelectorAll('.gallery-filter-btn');
+            btns.forEach(function(btn) { btn.classList.remove('bg-brand-600', 'text-white'); btn.classList.add('bg-white', 'text-slate-700'); });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-brand-600', 'text-white');
+            items.forEach(function(item) { if (category === 'all' || item.classList.contains(category)) { item.style.display = 'block'; } else { item.style.display = 'none'; } });
+        }
+        function handleFormSubmit(e) { e.preventDefault(); alert('Thank you! Your message has been received by Print One sales team. We will call you shortly on +263 772 719 284.'); }
+        window.onload = function() { calculateEstimate(); };
+    </script>
+</body>
+</html>
