@@ -383,9 +383,6 @@
                     <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Contact Us</a>
                 </nav>
                 <div class="hidden lg:flex items-center gap-3">
-                    <button id="theme-toggle-desktop" onclick="toggleTheme()" class="p-2 rounded-xl glass-panel text-slate-700 hover:text-brand-600 transition btn-hover" aria-label="Toggle theme">
-                        <i class="fa-solid fa-moon text-sm" id="theme-icon-desktop"></i>
-                    </button>
                     <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20would%20like%20to%20inquire%20about%20your%20printing%20and%20branding%20services." target="_blank" class="glass-panel text-slate-800 hover:text-brand-600 hover:border-brand-300 font-semibold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 transition shadow-sm"><i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i><span>WhatsApp Us</span></a>
                     <a href="#quote-calculator" class="bg-gradient-brand hover:bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition transform active:scale-95 flex items-center gap-2 btn-hover btn-shine"><i class="fa-solid fa-calculator"></i><span>Get Estimate</span></a>
                 </div>
@@ -403,7 +400,6 @@
             <a href="#portfolio" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Branding Photo Gallery</a>
             <a href="#quote-calculator" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Instant Price Estimator</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600">Harare Office & Contact</a>
-            <button onclick="toggleTheme(); toggleMobileMenu();" class="w-full text-left block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100"><i class="fa-solid fa-moon mr-2" id="theme-icon-mobile"></i><span id="theme-label-mobile"> Dark Mode</span></button>
             <div class="pt-2 grid grid-cols-2 gap-2">
                 <a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white font-semibold py-2 text-center rounded-xl text-xs flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                 <a href="#quote-calculator" onclick="toggleMobileMenu()" class="bg-brand-600 text-white font-semibold py-2 text-center rounded-xl text-xs flex items-center justify-center gap-2"><i class="fa-solid fa-calculator"></i> Quick Quote</a>
@@ -701,13 +697,48 @@
 
     <footer class="bg-brand-950 text-slate-300 py-12 border-t border-brand-900 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-brand-900">
-                <div class="space-y-3"><div class="flex items-center gap-3"><img src=".vscode/images/logo (1).png" alt="Print One Logo" class="h-16 w-auto object-contain"></div><p class="text-slate-400 text-xs leading-relaxed">Possibilities Are Infinite... Premier printing, signage, and visual identity house in Harare, Zimbabwe.</p><div class="text-[11px] text-slate-400">CEO: <strong>Mr. Robin Mawaro</strong> (HND MIS)</div></div>
-                <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Quick Navigation</h4><ul class="space-y-2 text-xs"><li><a href="#about" class="hover:text-brand-400 transition">About CEO</a></li><li><a href="#services" class="hover:text-brand-400 transition">18 Service Categories</a></li><li><a href="#projects" class="hover:text-brand-400 transition">Old Mutual & City Parking</a></li><li><a href="#quote-calculator" class="hover:text-brand-400 transition">Instant Quote Tool</a></li></ul></div>
-                <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Harare Office</h4><p class="text-slate-400 leading-relaxed">Cnr 2nd & George Silundika,<br />Morgan House 3rd Floor, Room 1,<br />Harare, Zimbabwe</p><p class="mt-2 font-bold text-white">+263 772 719 284</p></div>
-                <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Tax Compliance</h4><p class="text-slate-400">ZIMRA ITF263 Tax Compliant</p><p class="text-slate-400 mt-1">TIN: 2001355171</p><p class="text-slate-400">Sunny Hugs Investments t/a Printone</p><button onclick="openModal('taxModal')" class="mt-3 text-brand-400 hover:underline font-semibold flex items-center gap-1"><i class="fa-solid fa-file-lines"></i> View Tax Certificate</button></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pb-8 border-b border-brand-900 items-start">
+                <div class="space-y-4 lg:col-span-1">
+                    <div class="flex items-center gap-3"><span class="text-2xl font-black text-white">PRINT<span class="text-brand-400">ONE</span></span></div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Possibilities Are Infinite... Premier printing, signage, and visual identity house in Harare, Zimbabwe.</p>
+                    <div class="text-[11px] text-slate-400">CEO: <strong class="text-white">Mr. Robin Mawaro</strong> (HND MIS)</div>
+                </div>
+                <div class="lg:col-span-1">
+                    <h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-4">Quick Navigation</h4>
+                    <ul class="space-y-3 text-xs">
+                        <li><a href="#about" class="hover:text-brand-400 transition">About CEO</a></li>
+                        <li><a href="#services" class="hover:text-brand-400 transition">18 Service Categories</a></li>
+                        <li><a href="#projects" class="hover:text-brand-400 transition">Old Mutual & City Parking</a></li>
+                        <li><a href="#quote-calculator" class="hover:text-brand-400 transition">Instant Quote Tool</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-1">
+                    <h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-4">Harare Office</h4>
+                    <address class="text-slate-400 leading-relaxed not-italic">
+                        Cnr 2nd & George Silundika,<br>
+                        Morgan House 3rd Floor, Room 1,<br>
+                        Harare, Zimbabwe
+                    </address>
+                    <p class="mt-3 font-bold text-white"><a href="tel:+263772719284" class="hover:text-brand-400 transition">+263 772 719 284</a></p>
+                </div>
+                <div class="lg:col-span-1">
+                    <h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-4">Tax Compliance</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li>ZIMRA ITF263 Tax Compliant</li>
+                        <li>TIN: <strong class="text-white">2001355171</strong></li>
+                        <li>Sunny Hugs Investments t/a Printone</li>
+                    </ul>
+                    <button onclick="openModal('taxModal')" class="mt-4 text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1.5 text-xs"><i class="fa-solid fa-file-lines"></i> View Tax Certificate</button>
+                </div>
             </div>
-            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500"><div>&copy; 2026 Print One (Sunny Hugs Investments). All rights reserved.</div><div class="flex gap-4"><span>@printonezw</span><span>@Print One</span><span>www.printone.co.zw</span></div></div>
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-xs">
+                <div>&copy; 2026 Print One (Sunny Hugs Investments). All rights reserved.</div>
+                <div class="flex gap-4">
+                    <span>@printonezw</span>
+                    <span>@Print One</span>
+                    <span>www.printone.co.zw</span>
+                </div>
+            </div>
         </div>
     </footer>
 
