@@ -168,9 +168,190 @@
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
+
+        /* Theme System */
+        :root {
+            --bg-body: #ffffff;
+            --bg-mesh: #ffffff;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --glass-bg: rgba(255,255,255,0.85);
+            --glass-border: rgba(226,232,240,0.9);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 119, 205, 0.08);
+            --card-bg: rgba(255,255,255,0.9);
+            --card-hover-bg: rgba(255,255,255,1);
+            --nav-bg: rgba(255,255,255,0.88);
+            --input-bg: #f8fafc;
+            --scrollbar-thumb: #94a3b8;
+            --scrollbar-track: #f8fafc;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        [data-theme="dark"] {
+            --bg-body: #0b1220;
+            --bg-mesh: #020617;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --glass-bg: rgba(30,41,59,0.7);
+            --glass-border: rgba(255,255,255,0.08);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(30,41,59,0.8);
+            --card-hover-bg: rgba(30,41,59,0.9);
+            --nav-bg: rgba(15, 23, 42, 0.8);
+            --input-bg: #1e293b;
+            --scrollbar-thumb: #475569;
+            --scrollbar-track: #0f172a;
+        }
+        body.dark {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+        }
+        [data-theme="dark"] body,
+        body.dark {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+        }
+        [data-theme="dark"] .bg-mesh-white,
+        body.dark .bg-mesh-white {
+            background-color: #020617;
+            background-image: radial-gradient(at 0% 0%, rgba(56,189,248,0.05) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(14,165,233,0.06) 0px, transparent 50%), radial-gradient(at 50% 100%, rgba(2,132,199,0.04) 0px, transparent 50%);
+        }
+        [data-theme="dark"] .glass-panel,
+        body.dark .glass-panel {
+            background: var(--glass-bg);
+            border-color: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        [data-theme="dark"] .glass-panel-blue,
+        body.dark .glass-panel-blue {
+            background: rgba(30,41,59,0.75);
+            border-color: rgba(255,255,255,0.08);
+        }
+        [data-theme="dark"] .glass-card,
+        body.dark .glass-card {
+            background: var(--card-bg);
+            border-color: var(--glass-border);
+        }
+        [data-theme="dark"] .glass-nav,
+        body.dark .glass-nav {
+            background: var(--nav-bg);
+            border-bottom-color: var(--glass-border);
+        }
+        [data-theme="dark"] .glass-card:hover,
+        body.dark .glass-card:hover {
+            background: var(--card-hover-bg);
+            border-color: rgba(56,189,248,0.35);
+        }
+        [data-theme="dark"] input,
+        [data-theme="dark"] select,
+        [data-theme="dark"] textarea,
+        body.dark input,
+        body.dark select,
+        body.dark textarea {
+            background-color: var(--input-bg);
+            border-color: #334155;
+            color: var(--text-primary);
+        }
+        [data-theme="dark"] ::-webkit-scrollbar-track,
+        body.dark ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        [data-theme="dark"] ::-webkit-scrollbar-thumb,
+        body.dark ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+        }
+        #dark-mode-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.85);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 60;
+            transition: opacity 0.6s ease;
+        }
+        #dark-mode-overlay.active { opacity: 1; pointer-events: auto; }
+
+        /* Micro animations */
+        @keyframes shimmerMove {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(12,148,235,0); }
+            50% { box-shadow: 0 0 25px 4px rgba(56,189,248,0.35); }
+        }
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.32) 50%, transparent 100%);
+            background-size: 200% 100%;
+            transform: skewX(-12deg) translateX(-150%);
+            transition: transform 0.6s ease;
+        }
+        .btn-shine:hover::after {
+            transform: skewX(-12deg) translateX(150%);
+            animation: shimmerMove 1.9s linear infinite;
+        }
+        .animate-float-slow { animation: floatSlow 7s ease-in-out infinite; }
+        .animate-glow { animation: glowPulse 3.6s ease-in-out infinite; }
+
+        /* Gallery improvements */
+        .gallery-zoom-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(15,23,42,0.7);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .gallery-zoom-controls button {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+        .gallery-zoom-controls .zoom-level {
+            font-size: 0.7rem;
+            min-width: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        .wa-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #065f46;
+            color: white;
+            padding: 0.5rem 0.9rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .wa-chip:hover { background: #047857; transform: translateY(-1px); }
     </style>
 </head>
-<body class="bg-mesh-white min-h-screen text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-mesh-white min-h-screen text-slate-800 antialiased selection:bg-brand-500 selection:text-white" onload="applySavedTheme()">
+    <div id="dark-mode-overlay"></div>
 
     <div class="bg-brand-950 text-white text-xs py-2 px-4 shadow-sm relative z-50">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
@@ -202,8 +383,11 @@
                     <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Contact Us</a>
                 </nav>
                 <div class="hidden lg:flex items-center gap-3">
+                    <button id="theme-toggle-desktop" onclick="toggleTheme()" class="p-2 rounded-xl glass-panel text-slate-700 hover:text-brand-600 transition btn-hover" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon text-sm" id="theme-icon-desktop"></i>
+                    </button>
                     <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20would%20like%20to%20inquire%20about%20your%20printing%20and%20branding%20services." target="_blank" class="glass-panel text-slate-800 hover:text-brand-600 hover:border-brand-300 font-semibold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 transition shadow-sm"><i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i><span>WhatsApp Us</span></a>
-                    <a href="#quote-calculator" class="bg-gradient-brand hover:bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition transform active:scale-95 flex items-center gap-2 btn-hover"><i class="fa-solid fa-calculator"></i><span>Get Estimate</span></a>
+                    <a href="#quote-calculator" class="bg-gradient-brand hover:bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition transform active:scale-95 flex items-center gap-2 btn-hover btn-shine"><i class="fa-solid fa-calculator"></i><span>Get Estimate</span></a>
                 </div>
                 <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
                     <i id="menu-icon-bars" class="fa-solid fa-bars text-xl"></i>
@@ -219,6 +403,7 @@
             <a href="#portfolio" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Branding Photo Gallery</a>
             <a href="#quote-calculator" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Instant Price Estimator</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600">Harare Office & Contact</a>
+            <button onclick="toggleTheme(); toggleMobileMenu();" class="w-full text-left block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100"><i class="fa-solid fa-moon mr-2" id="theme-icon-mobile"></i><span id="theme-label-mobile"> Dark Mode</span></button>
             <div class="pt-2 grid grid-cols-2 gap-2">
                 <a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white font-semibold py-2 text-center rounded-xl text-xs flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                 <a href="#quote-calculator" onclick="toggleMobileMenu()" class="bg-brand-600 text-white font-semibold py-2 text-center rounded-xl text-xs flex items-center justify-center gap-2"><i class="fa-solid fa-calculator"></i> Quick Quote</a>
@@ -241,18 +426,18 @@
                     <p class="text-lg sm:text-xl font-bold text-brand-200 tracking-wide uppercase">"Possibilities Are Infinite..."</p>
                     <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">We are masters of concept and creative designing when it comes to branding. From 3D & 2D Signage, Nationwide Vehicle Wraps, and Billboards to Corporate Identity Materials & Premise Enhancements.</p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#services" class="w-full sm:w-auto bg-gradient-brand hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3 btn-hover"><span>Explore Services Catalog</span><i class="fa-solid fa-arrow-right-long text-sm"></i></a>
+                        <a href="#services" class="w-full sm:w-auto bg-gradient-brand hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3 btn-hover btn-shine"><span>Explore Services Catalog</span><i class="fa-solid fa-arrow-right-long text-sm"></i></a>
                         <a href="#projects" class="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-7 py-4 rounded-xl border border-white/20 transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-award text-brand-300"></i><span>View Big Projects</span></a>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 max-w-xl mx-auto lg:mx-0 border-t border-white/20">
-                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10"><div class="text-2xl sm:text-3xl font-black text-white">500+</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Branding Projects</div></div>
-                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10"><div class="text-2xl sm:text-3xl font-black text-white">100%</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Satisfaction Rate</div></div>
-                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10"><div class="text-2xl sm:text-3xl font-black text-white">Nationwide</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Coverage in Zim</div></div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10 animate-glow"><div class="text-2xl sm:text-3xl font-black text-white">500+</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Branding Projects</div></div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10 animate-glow" style="animation-delay: 1.2s;"><div class="text-2xl sm:text-3xl font-black text-white">100%</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Satisfaction Rate</div></div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10 animate-glow" style="animation-delay: 2.4s;"><div class="text-2xl sm:text-3xl font-black text-white">Nationwide</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Coverage in Zim</div></div>
                     </div>
                 </div>
-                <div class="lg:col-span-5">
-                    <div class="relative">
-                        <div class="glass-panel p-4 sm:p-6 rounded-3xl shadow-2xl relative z-10 border border-white/50 hero-glass-card">
+                    <div class="lg:col-span-5">
+                        <div class="relative">
+                            <div class="glass-panel p-4 sm:p-6 rounded-3xl shadow-2xl relative z-10 border border-white/50 hero-glass-card animate-float-slow">
                             <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-200">
                                 <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-rose-400"></span><span class="w-3 h-3 rounded-full bg-amber-400"></span><span class="w-3 h-3 rounded-full bg-emerald-400"></span><span class="text-xs font-bold text-slate-500 ml-2">Main Showcase Slot</span></div>
                                 <span class="text-[10px] font-bold bg-brand-100 text-brand-700 px-2.5 py-0.5 rounded-full uppercase">3D & 2D Signage</span>
@@ -385,17 +570,47 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                 <div><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Visual Proof</span><h2 class="text-3xl font-extrabold text-slate-900 mt-1">Branding Works Gallery</h2></div>
                 <div class="flex flex-wrap gap-2 text-xs font-semibold">
-                    <button onclick="filterGallery('all')" class="gallery-filter-btn active bg-brand-600 text-white px-4 py-2 rounded-xl transition">All Works</button>
-                    <button onclick="filterGallery('signage')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Signage</button>
-                    <button onclick="filterGallery('vehicle')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Vehicles</button>
-                    <button onclick="filterGallery('banners')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Banners</button>
-                    <button onclick="filterGallery('decor')" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Decor</button>
+                    <button onclick="filterGallery('all', event)" class="gallery-filter-btn active bg-brand-600 text-white px-4 py-2 rounded-xl transition">All Works</button>
+                    <button onclick="filterGallery('signage', event)" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Signage</button>
+                    <button onclick="filterGallery('vehicle', event)" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Vehicles</button>
+                    <button onclick="filterGallery('banners', event)" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Banners</button>
+                    <button onclick="filterGallery('decor', event)" class="gallery-filter-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl transition">Decor</button>
                 </div>
             </div>
             <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gallery-item signage glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('3D LED Illuminated Signboard', 'Precision cut acrylic channel lettering with internal LED backlighting.', 'Signage', '', this)"><img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">3D Signage</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Illuminated Storefront Facade</h4></div></div>
-                <div class="gallery-item vehicle glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Fleet Vehicle Wrap', 'High resolution vinyl vehicle graphic wrap for delivery vans.', 'Vehicle Branding', '', this)"><img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Fleet Wrap" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Vehicle Wrap</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Corporate Delivery Fleet</h4></div></div>
-                <div class="gallery-item banners glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Outdoor Teardrop & Gazebos', 'Heavy duty outdoor event display banners and branded gazebos.', 'Banners', '', this)"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Outdoor Banners" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Event Displays</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Teardrop Banners & Gazebos</h4></div></div>
+                <div class="gallery-item signage glass-card rounded-2xl overflow-hidden group">
+                    <div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('3D LED Illuminated Signboard', 'Precision cut acrylic channel lettering with internal LED backlighting.', 'Signage', '', this)">
+                        <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">3D Signage</span>
+                        <h4 class="font-extrabold text-slate-900 text-sm mt-1">Illuminated Storefront Facade</h4>
+                        <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20am%20interested%20in%203D%20Signage.%20Please%20share%20details%20and%20pricing." target="_blank" class="mt-3 w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
+                    </div>
+                </div>
+                <div class="gallery-item vehicle glass-card rounded-2xl overflow-hidden group">
+                    <div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Fleet Vehicle Wrap', 'High resolution vinyl vehicle graphic wrap for delivery vans.', 'Vehicle Branding', '', this)">
+                        <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Fleet Wrap" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Vehicle Wrap</span>
+                        <h4 class="font-extrabold text-slate-900 text-sm mt-1">Corporate Delivery Fleet</h4>
+                        <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20am%20interested%20in%20Vehicle%20Branding.%20Please%20share%20details%20and%20pricing." target="_blank" class="mt-3 w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
+                    </div>
+                </div>
+                <div class="gallery-item banners glass-card rounded-2xl overflow-hidden group">
+                    <div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Outdoor Teardrop & Gazebos', 'Heavy duty outdoor event display banners and branded gazebos.', 'Banners', '', this)">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Outdoor Banners" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Event Displays</span>
+                        <h4 class="font-extrabold text-slate-900 text-sm mt-1">Teardrop Banners & Gazebos</h4>
+                        <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20am%20interested%20in%20Banners%20/%20Gazebos.%20Please%20share%20details%20and%20pricing." target="_blank" class="mt-3 w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -487,7 +702,7 @@
     <footer class="bg-brand-950 text-slate-300 py-12 border-t border-brand-900 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-brand-900">
-                <div class="space-y-3"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white font-black text-sm">P1</div><span class="text-xl font-black text-white">PRINT<span class="text-brand-400">ONE</span></span></div><p class="text-slate-400 text-xs leading-relaxed">Possibilities Are Infinite... Premier printing, signage, and visual identity house in Harare, Zimbabwe.</p><div class="text-[11px] text-slate-400">CEO: <strong>Mr. Robin Mawaro</strong> (HND MIS)</div></div>
+                <div class="space-y-3"><div class="flex items-center gap-3"><img src=".vscode/images/logo (1).png" alt="Print One Logo" class="h-16 w-auto object-contain"></div><p class="text-slate-400 text-xs leading-relaxed">Possibilities Are Infinite... Premier printing, signage, and visual identity house in Harare, Zimbabwe.</p><div class="text-[11px] text-slate-400">CEO: <strong>Mr. Robin Mawaro</strong> (HND MIS)</div></div>
                 <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Quick Navigation</h4><ul class="space-y-2 text-xs"><li><a href="#about" class="hover:text-brand-400 transition">About CEO</a></li><li><a href="#services" class="hover:text-brand-400 transition">18 Service Categories</a></li><li><a href="#projects" class="hover:text-brand-400 transition">Old Mutual & City Parking</a></li><li><a href="#quote-calculator" class="hover:text-brand-400 transition">Instant Quote Tool</a></li></ul></div>
                 <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Harare Office</h4><p class="text-slate-400 leading-relaxed">Cnr 2nd & George Silundika,<br />Morgan House 3rd Floor, Room 1,<br />Harare, Zimbabwe</p><p class="mt-2 font-bold text-white">+263 772 719 284</p></div>
                 <div><h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Tax Compliance</h4><p class="text-slate-400">ZIMRA ITF263 Tax Compliant</p><p class="text-slate-400 mt-1">TIN: 2001355171</p><p class="text-slate-400">Sunny Hugs Investments t/a Printone</p><button onclick="openModal('taxModal')" class="mt-3 text-brand-400 hover:underline font-semibold flex items-center gap-1"><i class="fa-solid fa-file-lines"></i> View Tax Certificate</button></div>
@@ -497,13 +712,29 @@
     </footer>
 
     <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-panel bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 relative shadow-2xl border border-white">
+        <div class="glass-panel bg-white text-slate-900 rounded-3xl max-w-3xl w-full p-5 sm:p-6 relative shadow-2xl border border-white">
             <button onclick="closeModal('imageModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-xl font-bold p-2"><i class="fa-solid fa-xmark"></i></button>
-            <div id="modalCategoryPill" class="inline-block bg-brand-100 text-brand-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase mb-2">Showcase Category</div>
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+                <div id="modalCategoryPill" class="inline-block bg-brand-100 text-brand-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Showcase Category</div>
+                <div class="gallery-zoom-controls">
+                    <button onclick="zoomModalImage(-0.15)" aria-label="Zoom out"><i class="fa-solid fa-minus"></i></button>
+                    <span class="zoom-level" id="modalZoomLevel">100%</span>
+                    <button onclick="zoomModalImage(0.15)" aria-label="Zoom in"><i class="fa-solid fa-plus"></i></button>
+                    <button onclick="resetModalZoom()" aria-label="Reset zoom"><i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
             <h3 id="modalTitle" class="text-xl font-black mb-2">Image Title</h3>
-            <div class="img-placeholder-slot rounded-2xl h-64 mb-4 flex items-center justify-center overflow-hidden relative border border-slate-200"><img id="modalImg" src="" alt="Modal View" class="w-full h-full object-cover"></div>
+            <div class="img-placeholder-slot rounded-2xl h-72 sm:h-96 mb-4 flex items-center justify-center overflow-hidden relative border border-slate-200 cursor-zoom-in" onclick="openImageFullscreen()">
+                <img id="modalImg" src="" alt="Modal View" class="w-full h-full object-cover transition-transform duration-200 ease-out" style="transform-origin: center center;">
+            </div>
             <p id="modalDesc" class="text-xs text-slate-600 leading-relaxed mb-4">Description detail...</p>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-100"><span class="text-xs font-semibold text-slate-500">Print One Visual Media Slot</span><a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Contact</a></div>
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-3 border-t border-slate-100">
+                <span class="text-xs font-semibold text-slate-500">Print One Visual Media Slot</span>
+                <div class="flex items-center gap-2">
+                    <a id="modalWhatsAppBtn" href="https://wa.me/263772719284" target="_blank" class="wa-chip text-[11px]"><i class="fa-brands fa-whatsapp"></i><span>Inquire on WhatsApp</span></a>
+                    <button onclick="closeModal('imageModal')" class="text-[11px] font-bold bg-slate-900 text-white px-4 py-2 rounded-xl">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -535,6 +766,34 @@
         }
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        function applySavedTheme() {
+            var saved = localStorage.getItem('printone-theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = saved || (prefersDark ? 'dark' : 'light');
+            applyTheme(theme, true);
+        }
+        function toggleTheme() {
+            var current = document.documentElement.getAttribute('data-theme');
+            var next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next, false);
+        }
+        function applyTheme(theme, fromStorage) {
+            var overlay = document.getElementById('dark-mode-overlay');
+            if (!fromStorage && overlay) {
+                overlay.classList.add('active');
+                setTimeout(function() { overlay.classList.remove('active'); }, 640);
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('printone-theme', theme); } catch (e) {}
+            var desktopIcon = document.getElementById('theme-icon-desktop');
+            var mobileIcon = document.getElementById('theme-icon-mobile');
+            var mobileLabel = document.getElementById('theme-label-mobile');
+            var iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+            var labelText = theme === 'dark' ? ' Light Mode' : ' Dark Mode';
+            if (desktopIcon) { desktopIcon.className = 'fa-solid ' + iconClass + ' text-sm'; }
+            if (mobileIcon) { mobileIcon.className = 'fa-solid ' + iconClass + ' mr-2'; }
+            if (mobileLabel) { mobileLabel.innerText = labelText; }
+        }
         function openImageModal(title, desc, category, imgSrc, clickedEl) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalDesc').innerText = desc;
@@ -555,7 +814,36 @@
 
             imgElement.src = finalSrc;
             imgElement.style.display = 'block';
+            resetModalZoom();
+            var waBtn = document.getElementById('modalWhatsAppBtn');
+            if (waBtn) {
+                var text = encodeURIComponent('Hello Print One,%0A%0AI am interested in: ' + title + '.%0A%0ACategory: ' + category + '%0A%0APlease share details and pricing.');
+                waBtn.href = 'https://wa.me/263772719284?text=' + text;
+            }
             openModal('imageModal');
+        }
+        var modalZoomState = 1;
+        function zoomModalImage(delta) {
+            var img = document.getElementById('modalImg');
+            if (!img) return;
+            modalZoomState = Math.min(3, Math.max(0.5, modalZoomState + delta));
+            img.style.transform = 'scale(' + modalZoomState + ')';
+            var levelEl = document.getElementById('modalZoomLevel');
+            if (levelEl) levelEl.innerText = Math.round(modalZoomState * 100) + '%';
+        }
+        function resetModalZoom() {
+            modalZoomState = 1;
+            var img = document.getElementById('modalImg');
+            var levelEl = document.getElementById('modalZoomLevel');
+            if (img) img.style.transform = 'scale(1)';
+            if (levelEl) levelEl.innerText = '100%';
+        }
+        function openImageFullscreen() {
+            var img = document.getElementById('modalImg');
+            if (!img || !img.src) return;
+            var win = window.open('', '_blank');
+            if (!win) return;
+            win.document.write('<!DOCTYPE html><html><head><title>Print One</title><style>body{margin:0;background:#020617;display:flex;align-items:center;justify-content:center;min-height:100vh;}img{max-width:100%;max-height:100vh;object-fit:contain;}</style></head><body><img src="' + img.src + '"></body></html>');
         }
         function selectServiceForQuote(serviceName) {
             var serviceSelect = document.getElementById('quote-service');
@@ -591,12 +879,14 @@
             var msg = 'Hello Print One,%0A%0AI would like a formal quotation based on website estimator:%0A- Service: ' + service + '%0A- Finish: ' + finish + '%0A- Size: ' + width + 'm x ' + height + 'm%0A- Quantity: ' + qty + '%0A- Estimated Range: ' + price + '%0A%0APlease contact me.';
             window.open('https://wa.me/263772719284?text=' + msg, '_blank');
         }
-        function filterGallery(category) {
+        function filterGallery(category, event) {
             var items = document.querySelectorAll('.gallery-item');
             var btns = document.querySelectorAll('.gallery-filter-btn');
             btns.forEach(function(btn) { btn.classList.remove('bg-brand-600', 'text-white'); btn.classList.add('bg-white', 'text-slate-700'); });
-            event.target.classList.remove('bg-white', 'text-slate-700');
-            event.target.classList.add('bg-brand-600', 'text-white');
+            if (event && event.target) {
+                event.target.classList.remove('bg-white', 'text-slate-700');
+                event.target.classList.add('bg-brand-600', 'text-white');
+            }
             items.forEach(function(item) { if (category === 'all' || item.classList.contains(category)) { item.style.display = 'block'; } else { item.style.display = 'none'; } });
         }
         function handleFormSubmit(e) { e.preventDefault(); alert('Thank you! Your message has been received by Print One sales team. We will call you shortly on +263 772 719 284.'); }
