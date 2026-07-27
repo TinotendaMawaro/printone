@@ -48,6 +48,125 @@
         ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #0077cd; }
+
+        /* Modern Hero Particles */
+        .hero-printing-bg { background: linear-gradient(135deg, #072b4c 0%, #0a4373 40%, #005fa7 100%); position: relative; }
+        #heroCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .hero-content-animate { animation: fadeInUp 0.8s ease-out forwards; }
+        .hero-glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 60px -15px rgba(0, 119, 205, 0.35), 0 0 0 1px rgba(255,255,255,0.1) inset;
+        }
+        .hero-transition-fade {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 160px;
+            background: linear-gradient(to bottom, rgba(7,43,76,0) 0%, rgba(7,43,76,1) 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+            pointer-events: none;
+        }
+
+        /* Comprehensive Animation Suite */
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .section-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-fade-in { opacity: 0; transform: translateY(25px); transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+        .reveal-slide-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-slide-left.is-visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-slide-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-slide-right.is-visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-scale-in { opacity: 0; transform: scale(0.92); transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-scale-in.is-visible { opacity: 1; transform: scale(1); }
+
+        .reveal-stagger { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-stagger.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Card & Button hover effects */
+        .glass-card {
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(12, 148, 235, 0.18), 0 0 0 1px rgba(255,255,255,0.15) inset;
+            border-color: rgba(12,148,235,0.35);
+        }
+
+        .btn-hover {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -8px rgba(0, 119, 205, 0.35);
+        }
+        .btn-hover:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        /* Decorative animations */
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+        @keyframes softRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .animate-pulse-slow { animation: gentlePulse 4s ease-in-out infinite; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-rotate-slow { animation: softRotate 20s linear infinite; }
+        .animate-shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        /* Section transition smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Hero content scroll fade */
+        .hero-scroll-content {
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body class="bg-mesh-white min-h-screen text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
@@ -73,16 +192,17 @@
                     
                 </a>
                 <nav class="hidden lg:flex items-center gap-7">
-                    <a href="#about" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">CEO</a>
-                    <a href="#services" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Services</a>
-                    <a href="#projects" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Projects</a>
-                    <a href="#portfolio" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Gallery</a>
-                    <a href="#quote-calculator" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Instant Quote</a>
-                    <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition">Contact Us</a>
+                    <a href="#about-company" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">About</a>
+                    <a href="#about" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">CEO</a>
+                    <a href="#services" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Services</a>
+                    <a href="#projects" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Projects</a>
+                    <a href="#portfolio" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Gallery</a>
+                    <a href="#quote-calculator" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Instant Quote</a>
+                    <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition btn-hover">Contact Us</a>
                 </nav>
                 <div class="hidden lg:flex items-center gap-3">
                     <a href="https://wa.me/263772719284?text=Hello%20Print%20One,%20I%20would%20like%20to%20inquire%20about%20your%20printing%20and%20branding%20services." target="_blank" class="glass-panel text-slate-800 hover:text-brand-600 hover:border-brand-300 font-semibold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2 transition shadow-sm"><i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i><span>WhatsApp Us</span></a>
-                    <a href="#quote-calculator" class="bg-gradient-brand hover:bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition transform active:scale-95 flex items-center gap-2"><i class="fa-solid fa-calculator"></i><span>Get Estimate</span></a>
+                    <a href="#quote-calculator" class="bg-gradient-brand hover:bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 transition transform active:scale-95 flex items-center gap-2 btn-hover"><i class="fa-solid fa-calculator"></i><span>Get Estimate</span></a>
                 </div>
                 <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
                     <i id="menu-icon-bars" class="fa-solid fa-bars text-xl"></i>
@@ -91,6 +211,7 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-slate-200 px-4 pt-3 pb-6 space-y-1">
+            <a href="#about-company" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">About Print One</a>
             <a href="#about" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">About Mr Robin Mawaro (CEO)</a>
             <a href="#services" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Services Catalog (18 Categories)</a>
             <a href="#projects" onclick="toggleMobileMenu()" class="block py-3 text-sm font-semibold text-slate-700 hover:text-brand-600 border-b border-slate-100">Big Projects Showcase</a>
@@ -104,39 +225,39 @@
         </div>
     </header>
 
-    <section class="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-white via-brand-50/40 to-white">
-        <div class="absolute top-10 left-10 w-96 h-96 bg-brand-200/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden hero-printing-bg">
+        <canvas id="heroCanvas"></canvas>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-blue text-brand-800 text-xs font-semibold shadow-sm border border-brand-200">
-                        <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left hero-content-animate">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-semibold shadow-sm border border-white/20">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse"></span>
                         <span class="font-bold">SIGNAGE &bull; PRINTING &bull; BRANDING</span>
                         <span class="bg-brand-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-1">Harare, Zimbabwe</span>
                     </div>
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.15] tracking-tight">Transforming Ideas Into <br class="hidden sm:inline" /><span class="text-gradient">Powerful Brand Expressions</span></h1>
-                    <p class="text-lg sm:text-xl font-bold text-brand-600 tracking-wide uppercase">"Possibilities Are Infinite..."</p>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">We are masters of concept and creative designing when it comes to branding. From 3D & 2D Signage, Nationwide Vehicle Wraps, and Billboards to Corporate Identity Materials & Premise Enhancements.</p>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15] tracking-tight drop-shadow-lg">Transforming Ideas Into <br class="hidden sm:inline" /><span class="text-gradient">Powerful Brand Expressions</span></h1>
+                    <p class="text-lg sm:text-xl font-bold text-brand-200 tracking-wide uppercase">"Possibilities Are Infinite..."</p>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">We are masters of concept and creative designing when it comes to branding. From 3D & 2D Signage, Nationwide Vehicle Wraps, and Billboards to Corporate Identity Materials & Premise Enhancements.</p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#services" class="w-full sm:w-auto bg-gradient-brand hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/20 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3"><span>Explore Services Catalog</span><i class="fa-solid fa-arrow-right-long text-sm"></i></a>
-                        <a href="#projects" class="w-full sm:w-auto glass-panel text-slate-800 hover:text-brand-600 font-bold px-7 py-4 rounded-xl border border-slate-200 hover:border-brand-300 transition flex items-center justify-center gap-2"><i class="fa-solid fa-award text-brand-500"></i><span>View Big Projects</span></a>
+                        <a href="#services" class="w-full sm:w-auto bg-gradient-brand hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3 btn-hover"><span>Explore Services Catalog</span><i class="fa-solid fa-arrow-right-long text-sm"></i></a>
+                        <a href="#projects" class="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-7 py-4 rounded-xl border border-white/20 transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-award text-brand-300"></i><span>View Big Projects</span></a>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 max-w-xl mx-auto lg:mx-0 border-t border-slate-200">
-                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center"><div class="text-2xl sm:text-3xl font-black text-brand-600">500+</div><div class="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1">Branding Projects</div></div>
-                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center"><div class="text-2xl sm:text-3xl font-black text-brand-600">100%</div><div class="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1">Satisfaction Rate</div></div>
-                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center"><div class="text-2xl sm:text-3xl font-black text-brand-600">Nationwide</div><div class="text-[11px] sm:text-xs font-semibold text-slate-500 mt-1">Coverage in Zim</div></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 max-w-xl mx-auto lg:mx-0 border-t border-white/20">
+                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10"><div class="text-2xl sm:text-3xl font-black text-white">500+</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Branding Projects</div></div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10"><div class="text-2xl sm:text-3xl font-black text-white">100%</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Satisfaction Rate</div></div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl text-center border border-white/10"><div class="text-2xl sm:text-3xl font-black text-white">Nationwide</div><div class="text-[11px] sm:text-xs font-semibold text-slate-300 mt-1">Coverage in Zim</div></div>
                     </div>
                 </div>
                 <div class="lg:col-span-5">
                     <div class="relative">
-                        <div class="glass-panel p-4 sm:p-6 rounded-3xl shadow-2xl relative z-10 border border-white">
-                            <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-100">
+                        <div class="glass-panel p-4 sm:p-6 rounded-3xl shadow-2xl relative z-10 border border-white/50 hero-glass-card">
+                            <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-200">
                                 <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-rose-400"></span><span class="w-3 h-3 rounded-full bg-amber-400"></span><span class="w-3 h-3 rounded-full bg-emerald-400"></span><span class="text-xs font-bold text-slate-500 ml-2">Main Showcase Slot</span></div>
                                 <span class="text-[10px] font-bold bg-brand-100 text-brand-700 px-2.5 py-0.5 rounded-full uppercase">3D & 2D Signage</span>
                             </div>
-                            <div class="img-placeholder-slot rounded-2xl h-80 flex flex-col items-center justify-center p-6 text-center group cursor-pointer overflow-hidden relative shadow-inner" onclick="openImageModal('High-Impact Outdoor & 3D Signage', 'Premium illuminated 3D channel lettering and facade branding manufactured by Print One.', '3D & 2D Signage', '.vscode/images/3D.jpeg')">
-                                <img src=".vscode/images/3D.jpeg" alt="Print One Main Showcase" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" onerror="this.style.display='none'">
+                            <div class="img-placeholder-slot rounded-2xl h-80 flex flex-col items-center justify-center p-6 text-center group cursor-pointer overflow-hidden relative shadow-inner" onclick="openImageModal('High-Impact Outdoor & 3D Signage', 'Premium illuminated 3D channel lettering and facade branding manufactured by Print One.', '3D & 2D Signage', '.vscode/images/3d4.webp', this)">
+                                <img src=".vscode/images/3d4.webp" alt="3D & 2D Signage Showcase" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" onerror="this.style.display='none'">
                             </div>
                             <div class="mt-4 grid grid-cols-2 gap-3">
                                 <div class="bg-white/90 p-3 rounded-xl border border-slate-100 text-xs flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-certificate"></i></div><div><div class="font-bold text-slate-800">ITF263 Verified</div><div class="text-[10px] text-slate-500">ZIMRA Compliant</div></div></div>
@@ -147,9 +268,10 @@
                 </div>
             </div>
         </div>
+        <div class="hero-transition-fade"></div>
     </section>
 
-    <section id="about-company" class="py-16 sm:py-24 bg-white relative">
+    <section id="about-company" class="py-16 sm:py-24 bg-white relative section-reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
@@ -165,13 +287,8 @@
                     </div>
                 </div>
                 <div class="lg:col-span-1">
-                    <div class="img-placeholder-slot rounded-3xl h-96 flex items-center justify-center overflow-hidden relative shadow-md cursor-pointer" onclick="openImageModal('About Print One', 'Print One is a premier printing, signage, and branding company based in Harare, Zimbabwe.', 'About Us')">
+                    <div class="img-placeholder-slot rounded-3xl h-96 flex items-center justify-center overflow-hidden relative shadow-md cursor-pointer" onclick="openImageModal('About Print One', 'Print One is a premier printing, signage, and branding company based in Harare, Zimbabwe.', 'About Us', '', this)">
                         <img src="https://images.unsplash.com/photo-1568952433726-3896e3881c65?auto=format&fit=crop&w=800&q=80" alt="About Print One" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
-                        <div class="relative z-10 bg-slate-900/75 backdrop-blur-md text-white p-5 rounded-2xl border border-white/20 max-w-xs text-center">
-                            <div class="w-12 h-12 rounded-full bg-brand-500 mx-auto flex items-center justify-center mb-2"><i class="fa-solid fa-building text-xl text-white"></i></div>
-                            <h4 class="font-bold text-base">PRINT ONE</h4>
-                            <p class="text-xs text-brand-300 font-semibold mt-0.5">Harare, Zimbabwe</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -184,14 +301,8 @@
                 <div class="lg:col-span-5">
                     <div class="relative">
                         <div class="glass-panel p-6 rounded-3xl relative z-10 border border-slate-200 shadow-xl">
-                            <div class="img-placeholder-slot rounded-2xl h-96 flex flex-col items-center justify-center p-6 text-center group cursor-pointer overflow-hidden relative shadow-md" onclick="openImageModal('Mr Robin Mawaro - CEO Print One', 'Results-driven Young Entrepreneur & Founder of Print One. Holder of HND Management of Information Systems (IMIS).', 'Executive Leadership')">
+                            <div class="img-placeholder-slot rounded-2xl h-96 flex flex-col items-center justify-center p-6 text-center group cursor-pointer overflow-hidden relative shadow-md" onclick="openImageModal('Mr Robin Mawaro - CEO Print One', 'Results-driven Young Entrepreneur & Founder of Print One. Holder of HND Management of Information Systems (IMIS).', 'Executive Leadership', '', this)">
                                 <img src=".vscode/images/magnific__make-the-person-stand-facing-the-camera-directly__29208.png" alt="Mr Robin Mawaro CEO" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
-                                <div class="relative z-10 bg-slate-900/75 backdrop-blur-md text-white p-5 rounded-2xl border border-white/20 max-w-xs mt-6">
-                                    <div class="w-12 h-12 rounded-full bg-brand-500 mx-auto flex items-center justify-center mb-2"><i class="fa-solid fa-user-tie text-xl text-white"></i></div>
-                                    <h4 class="font-bold text-base">MR ROBIN MAWARO</h4>
-                                    <p class="text-xs text-brand-300 font-semibold mt-0.5">CEO & FOUNDER</p>
-                                    <p class="text-[11px] text-slate-300 mt-2">Holder of HND Management of Information Systems (IMIS)</p>
-                                </div>
                             </div>
                             <div class="mt-4 p-3 bg-brand-50 rounded-xl border border-brand-100 flex items-center justify-between text-xs"><span class="font-bold text-brand-900"><i class="fa-solid fa-graduation-cap text-brand-600 mr-1.5"></i> HND MIS Qualified</span><span class="text-brand-700 font-medium">Harare, Zimbabwe</span></div>
                         </div>
@@ -224,51 +335,51 @@
         </div>
     </section>
 
-    <section id="services" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50">
+    <section id="services" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 section-reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14"><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Official Company Profile Catalog</span><h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Complete Printing & Branding Solutions</h2><p class="text-slate-600 mt-3 text-sm sm:text-base">We re-imagine and represent your brand impressions with your target market in mind. Our branding designs and presentations can hardly be resisted — we are simply the best!</p></div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Indoor & Outdoor Display Systems', 'Roll Up Banners, Telescopic Banners, Tear Drop Banners, S-Shaped Banners, Parasol Umbrellas, Backdrop Banners, Branded Gazebos.', 'Display Systems')"><img src="https://images.unsplash.com/photo-1542744094-3a317272018a?auto=format&fit=crop&w=600&q=80" alt="Indoor Outdoor Displays" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Display Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 3 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Indoor & Outdoor Display</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Roll Up Banners, Telescopic Banners, Tear Drop Banners, S-shaped Banners, Parasol Umbrellas, Backdrop Banners, and Branded Event Gazebos.</p></div><button onclick="selectServiceForQuote('Indoor & Outdoor Display')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Indoor & Outdoor Display Systems', 'Roll Up Banners, Telescopic Banners, Tear Drop Banners, S-Shaped Banners, Parasol Umbrellas, Backdrop Banners, Branded Gazebos.', 'Display Systems', '', this)"><img src="https://images.unsplash.com/photo-1542744094-3a317272018a?auto=format&fit=crop&w=600&q=80" alt="Indoor Outdoor Displays" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Display Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 3 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Indoor & Outdoor Display</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Roll Up Banners, Telescopic Banners, Tear Drop Banners, S-shaped Banners, Parasol Umbrellas, Backdrop Banners, and Branded Event Gazebos.</p></div><button onclick="selectServiceForQuote('Indoor & Outdoor Display')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Digital Printing Solutions', 'Executive Business Cards, Glossy Brochures, Promotional Flyers, Corporate Letterheads, Receipt Books, Custom Product Label Stickers.', 'Digital Printing')"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Digital Printing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Print Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 4 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Digital Printing</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-finish Business Cards, Brochures, Flyers, Executive Letterheads, Receipt/Invoice Books, and Custom Product Label Stickers.</p></div><button onclick="selectServiceForQuote('Digital Printing')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Digital Printing Solutions', 'Executive Business Cards, Glossy Brochures, Promotional Flyers, Corporate Letterheads, Receipt Books, Custom Product Label Stickers.', 'Digital Printing', '', this)"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Digital Printing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Print Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 4 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Digital Printing</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-finish Business Cards, Brochures, Flyers, Executive Letterheads, Receipt/Invoice Books, and Custom Product Label Stickers.</p></div><button onclick="selectServiceForQuote('Digital Printing')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Vehicle & Fleet Branding', 'Full vehicle body wraps, partial vinyl graphics, magnetic door signs, contravision window branding.', 'Vehicle Branding')"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Vehicle Branding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Vehicle Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Pages 5 & 6 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Vehicle Branding</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Full fleet wraps, partial wraps, delivery van graphics, contravision window wraps, and magnetic door panels for high mobile exposure.</p></div><button onclick="selectServiceForQuote('Vehicle Branding')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Vehicle & Fleet Branding', 'Full vehicle body wraps, partial vinyl graphics, magnetic door signs, contravision window branding.', 'Vehicle Branding', '', this)"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Vehicle Branding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Vehicle Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Pages 5 & 6 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Vehicle Branding</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Full fleet wraps, partial wraps, delivery van graphics, contravision window wraps, and magnetic door panels for high mobile exposure.</p></div><button onclick="selectServiceForQuote('Vehicle Branding')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Billboards & Outdoor Banners', 'Highway billboard skin prints, heavy duty PVC flex banners, mesh building wraps, street poles.', 'Outdoor Media')"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Billboards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Billboard Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 7 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Billboards & Outdoor Banners</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Heavy-duty weather-proof PVC flex banners, highway billboard skin prints, mesh building wraps, and large format outdoor advertising media.</p></div><button onclick="selectServiceForQuote('Billboards & Outdoor Banners')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Billboards & Outdoor Banners', 'Highway billboard skin prints, heavy duty PVC flex banners, mesh building wraps, street poles.', 'Outdoor Media', '', this)"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Billboards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Billboard Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 7 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Billboards & Outdoor Banners</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Heavy-duty weather-proof PVC flex banners, highway billboard skin prints, mesh building wraps, and large format outdoor advertising media.</p></div><button onclick="selectServiceForQuote('Billboards & Outdoor Banners')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Corporate Gifts & Apparel Branding', 'Branded T-shirts, corporate gifts, promotional mugs, pens, notebooks, umbrella gifts, executive gift sets.', 'Corporate Gifts')"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80" alt="Corporate Gifts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Gifts Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 8 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Corporate Gifts & T-Shirts</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Custom T-shirt screen printing, embroidered corporate apparel, executive gifts, promotional mugs, pens, diaries, and branded merchandise.</p></div><button onclick="selectServiceForQuote('Corporate Gifts & Apparel')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Corporate Gifts & Apparel Branding', 'Branded T-shirts, corporate gifts, promotional mugs, pens, notebooks, umbrella gifts, executive gift sets.', 'Corporate Gifts', '', this)"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80" alt="Corporate Gifts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Gifts Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 8 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Corporate Gifts & T-Shirts</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Custom T-shirt screen printing, embroidered corporate apparel, executive gifts, promotional mugs, pens, diaries, and branded merchandise.</p></div><button onclick="selectServiceForQuote('Corporate Gifts & Apparel')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Name Tags & Domed Resin Stickers', 'Executive resin domed stickers, magnetic corporate name tags, equipment badges.', 'Name Tags & Stickers')"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80" alt="Domed Stickers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Domed Badge Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 9 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Name Tags & Domed Stickers</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-gloss 3D resin domed stickers, magnetic staff name tags, durable product badges, and metallic label finishings.</p></div><button onclick="selectServiceForQuote('Name Tags & Domed Stickers')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Name Tags & Domed Resin Stickers', 'Executive resin domed stickers, magnetic corporate name tags, equipment badges.', 'Name Tags & Stickers', '', this)"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80" alt="Domed Stickers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Domed Badge Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 9 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Name Tags & Domed Stickers</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-gloss 3D resin domed stickers, magnetic staff name tags, durable product badges, and metallic label finishings.</p></div><button onclick="selectServiceForQuote('Name Tags & Domed Stickers')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('PVC ID Cards & Printed Lanyards', 'High durability PVC corporate security identity cards, membership cards, custom printed lanyards.', 'ID Systems')"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="PVC ID Cards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> PVC ID Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 10 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">PVC ID Cards & Lanyards</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Plastic PVC staff access cards, membership identity badges, custom printed branded lanyards, and card holders.</p></div><button onclick="selectServiceForQuote('PVC ID Cards')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('PVC ID Cards & Printed Lanyards', 'High durability PVC corporate security identity cards, membership cards, custom printed lanyards.', 'ID Systems', '', this)"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="PVC ID Cards" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> PVC ID Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 10 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">PVC ID Cards & Lanyards</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Plastic PVC staff access cards, membership identity badges, custom printed branded lanyards, and card holders.</p></div><button onclick="selectServiceForQuote('PVC ID Cards')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('3D & 2D Signage Solutions', 'Illuminated LED channel lettering, acrylic cutouts, storefront facade boards, pylon signs, directional signs.', '3D & 2D Signage')"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> 3D Signage Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 11 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">3D & 2D Signage</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Illuminated LED acrylic channel letters, outdoor pylon signs, street directionals, shop facade boards, and lightboxes.</p></div><button onclick="selectServiceForQuote('3D & 2D Signage')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('3D & 2D Signage Solutions', 'Illuminated LED channel lettering, acrylic cutouts, storefront facade boards, pylon signs, directional signs.', '3D & 2D Signage', '', this)"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> 3D Signage Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 11 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">3D & 2D Signage</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Illuminated LED acrylic channel letters, outdoor pylon signs, street directionals, shop facade boards, and lightboxes.</p></div><button onclick="selectServiceForQuote('3D & 2D Signage')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Gate Numbers & Architectural Signage', 'Custom acrylic and aluminum gate numbers, house plaques, estate directional signs.', 'Gate Signage')"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Gate Numbers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Gate Sign Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 12 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Gate Numbers Signage</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Bespoke laser-cut acrylic gate numbers, metal house plaques, office entrance numbers, and property boundary signs.</p></div><button onclick="selectServiceForQuote('Gate Numbers Signage')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Gate Numbers & Architectural Signage', 'Custom acrylic and aluminum gate numbers, house plaques, estate directional signs.', 'Gate Signage', '', this)"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Gate Numbers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Gate Sign Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 12 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Gate Numbers Signage</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Bespoke laser-cut acrylic gate numbers, metal house plaques, office entrance numbers, and property boundary signs.</p></div><button onclick="selectServiceForQuote('Gate Numbers Signage')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Church Backdrops & Stage Design', 'Large scale tension fabric church backdrops, sermon stage media banners, conference stage graphics.', 'Stage Design')"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Church Stage Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Stage Backdrop Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 13 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Church Backdrops & Stage Design</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Custom church stage media backdrops, pulpit banners, conference podium wraps, and illuminated stage visual setups.</p></div><button onclick="selectServiceForQuote('Church Backdrops & Stage Design')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Church Backdrops & Stage Design', 'Large scale tension fabric church backdrops, sermon stage media banners, conference stage graphics.', 'Stage Design', '', this)"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Church Stage Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Stage Backdrop Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 13 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Church Backdrops & Stage Design</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Custom church stage media backdrops, pulpit banners, conference podium wraps, and illuminated stage visual setups.</p></div><button onclick="selectServiceForQuote('Church Backdrops & Stage Design')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Window Frosting & Architectural Film', 'Privacy frosted film with computer-cut logos, decorative office glass panels, sandblast effect film.', 'Window Frosting')"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Window Frosting" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Window Frosting Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 14 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Window Frosting</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Architectural privacy frosted film, computer-cut sandblast vinyl with corporate logos, boardroom partition frosting.</p></div><button onclick="selectServiceForQuote('Window Frosting')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Window Frosting & Architectural Film', 'Privacy frosted film with computer-cut logos, decorative office glass panels, sandblast effect film.', 'Window Frosting', '', this)"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Window Frosting" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Window Frosting Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Page 14 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Window Frosting</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">Architectural privacy frosted film, computer-cut sandblast vinyl with corporate logos, boardroom partition frosting.</p></div><button onclick="selectServiceForQuote('Window Frosting')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
-                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Custom Wallpapers & Branded Entrance Mats', 'Seamless custom office feature wall wallpapers, heavy duty coir/rubber branded entrance mats with company logos.', 'Premise Decor')"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Wallpapers and Mats" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Wallpaper & Mat Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Pages 15 & 16 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Wallpapers & Branded Mats</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-definition custom wall mural wallpapers and heavy-duty logo entrance door mats for corporate receptions.</p></div><button onclick="selectServiceForQuote('Wallpapers & Branded Mats')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between reveal-stagger"><div><div class="img-placeholder-slot rounded-2xl h-48 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Custom Wallpapers & Branded Entrance Mats', 'Seamless custom office feature wall wallpapers, heavy duty coir/rubber branded entrance mats with company logos.', 'Premise Decor', '', this)"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Wallpapers and Mats" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-camera"></i> Wallpaper & Mat Photo Slot</div></div><span class="text-[10px] uppercase font-bold text-brand-700 bg-brand-100 px-2.5 py-1 rounded-md">Pages 15 & 16 in Profile</span><h3 class="text-lg font-extrabold text-slate-900 mt-2">Wallpapers & Branded Mats</h3><p class="text-slate-600 text-xs leading-relaxed mt-2">High-definition custom wall mural wallpapers and heavy-duty logo entrance door mats for corporate receptions.</p></div><button onclick="selectServiceForQuote('Wallpapers & Branded Mats')" class="mt-4 w-full py-2.5 rounded-xl border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white font-semibold text-xs transition flex items-center justify-center gap-2 btn-hover"><i class="fa-solid fa-plus text-[10px]"></i> Get Quote</button></div>
 
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-16 sm:py-24 bg-white relative border-t border-slate-100">
+    <section id="projects" class="py-16 sm:py-24 bg-white relative border-t border-slate-100 section-reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-14"><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Proven High-Profile Execution</span><h2 class="text-3xl font-extrabold text-slate-900 mt-1">Major Projects Spotlight</h2><p class="text-slate-600 text-sm mt-2">Print One has been trusted with big contracts across Zimbabwe by top tier corporations and municipalities:</p></div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Old Mutual (Omari) Nationwide Booths Branding', 'Complete nationwide customer service & agent booths branding and fabrication.', 'Big Projects')"><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" alt="Old Mutual Omari" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-emerald-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Nationwide Contract</span></div><h3 class="text-xl font-black text-slate-900">Old Mutual (Omari)</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Nationwide customer service and agent booths branding, engineered with durable UV vinyls and illuminated brand logos deployed across all major Zimbabwean urban hubs.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-emerald-500"></i> Zimbabwe-wide</span><span class="text-brand-600 font-bold">Turnkey Rollout</span></div></div>
-                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-brand-600 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('City Parking On-Street Signage', 'High visibility reflective metal parking signage posts for the entire City of Harare.', 'Big Projects')"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="City Parking Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-brand-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Capital City Signage</span></div><h3 class="text-xl font-black text-slate-900">City Parking Harare</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Manufactured and installed high-durability reflective metal on-street parking signage and directional posts across the entire Harare central business district.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-brand-500"></i> Greater Harare</span><span class="text-brand-600 font-bold">Reflective Metal</span></div></div>
-                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-indigo-500 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Truworths Rebranding Nationwide', 'Full retail store visual identity & facade rebranding nationwide.', 'Big Projects')"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Truworths Rebranding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-indigo-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Retail Chain Rebrand</span></div><h3 class="text-xl font-black text-slate-900">Truworths Zimbabwe</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Full retail store visual identity, shopfront 3D illuminated letters, in-store promotional displays, and facade rebranding for Truworths outlets nationwide.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-indigo-500"></i> All Outlets</span><span class="text-brand-600 font-bold">Fascia & Interior</span></div></div>
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Old Mutual (Omari) Nationwide Booths Branding', 'Complete nationwide customer service & agent booths branding and fabrication.', 'Big Projects', '', this)"><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" alt="Old Mutual Omari" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-emerald-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Nationwide Contract</span></div><h3 class="text-xl font-black text-slate-900">Old Mutual (Omari)</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Nationwide customer service and agent booths branding, engineered with durable UV vinyls and illuminated brand logos deployed across all major Zimbabwean urban hubs.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-emerald-500"></i> Zimbabwe-wide</span><span class="text-brand-600 font-bold">Turnkey Rollout</span></div></div>
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-brand-600 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('City Parking On-Street Signage', 'High visibility reflective metal parking signage posts for the entire City of Harare.', 'Big Projects', '', this)"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="City Parking Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-brand-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Capital City Signage</span></div><h3 class="text-xl font-black text-slate-900">City Parking Harare</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Manufactured and installed high-durability reflective metal on-street parking signage and directional posts across the entire Harare central business district.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-brand-500"></i> Greater Harare</span><span class="text-brand-600 font-bold">Reflective Metal</span></div></div>
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-indigo-500 flex flex-col justify-between"><div><div class="img-placeholder-slot rounded-2xl h-52 mb-5 overflow-hidden relative group cursor-pointer" onclick="openImageModal('Truworths Rebranding Nationwide', 'Full retail store visual identity & facade rebranding nationwide.', 'Big Projects', '', this)"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Truworths Rebranding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 bg-indigo-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Retail Chain Rebrand</span></div><h3 class="text-xl font-black text-slate-900">Truworths Zimbabwe</h3><p class="text-slate-600 text-xs mt-2 leading-relaxed">Full retail store visual identity, shopfront 3D illuminated letters, in-store promotional displays, and facade rebranding for Truworths outlets nationwide.</p></div><div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500"><span><i class="fa-solid fa-location-dot text-indigo-500"></i> All Outlets</span><span class="text-brand-600 font-bold">Fascia & Interior</span></div></div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="py-16 sm:py-24 bg-slate-50/80 border-t border-slate-200">
+    <section id="portfolio" class="py-16 sm:py-24 bg-slate-50/80 border-t border-slate-200 section-reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                 <div><span class="text-brand-600 font-extrabold uppercase tracking-widest text-xs">Visual Proof</span><h2 class="text-3xl font-extrabold text-slate-900 mt-1">Branding Works Gallery</h2></div>
@@ -281,14 +392,14 @@
                 </div>
             </div>
             <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gallery-item signage glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('3D LED Illuminated Signboard', 'Precision cut acrylic channel lettering with internal LED backlighting.', 'Signage')"><img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">3D Signage</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Illuminated Storefront Facade</h4></div></div>
-                <div class="gallery-item vehicle glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Fleet Vehicle Wrap', 'High resolution vinyl vehicle graphic wrap for delivery vans.', 'Vehicle Branding')"><img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Fleet Wrap" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Vehicle Wrap</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Corporate Delivery Fleet</h4></div></div>
-                <div class="gallery-item banners glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Outdoor Teardrop & Gazebos', 'Heavy duty outdoor event display banners and branded gazebos.', 'Banners')"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Outdoor Banners" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Event Displays</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Teardrop Banners & Gazebos</h4></div></div>
+                <div class="gallery-item signage glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('3D LED Illuminated Signboard', 'Precision cut acrylic channel lettering with internal LED backlighting.', 'Signage', '', this)"><img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=600&q=80" alt="3D Signage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">3D Signage</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Illuminated Storefront Facade</h4></div></div>
+                <div class="gallery-item vehicle glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Fleet Vehicle Wrap', 'High resolution vinyl vehicle graphic wrap for delivery vans.', 'Vehicle Branding', '', this)"><img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Fleet Wrap" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Vehicle Wrap</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Corporate Delivery Fleet</h4></div></div>
+                <div class="gallery-item banners glass-card rounded-2xl overflow-hidden group"><div class="img-placeholder-slot h-60 relative overflow-hidden" onclick="openImageModal('Outdoor Teardrop & Gazebos', 'Heavy duty outdoor event display banners and branded gazebos.', 'Banners', '', this)"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Outdoor Banners" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'"><div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-2"><i class="fa-solid fa-magnifying-glass-plus"></i> View Image Slot</div></div><div class="p-4"><span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">Event Displays</span><h4 class="font-extrabold text-slate-900 text-sm mt-1">Teardrop Banners & Gazebos</h4></div></div>
             </div>
         </div>
     </section>
 
-    <section id="quote-calculator" class="py-16 sm:py-24 bg-gradient-to-br from-brand-950 via-slate-900 to-brand-900 text-white relative">
+    <section id="quote-calculator" class="py-16 sm:py-24 bg-gradient-to-br from-brand-950 via-slate-900 to-brand-900 text-white relative section-reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5 space-y-5">
@@ -338,7 +449,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white relative">
+    <section id="contact" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white relative section-reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-5 space-y-6">
@@ -391,7 +502,7 @@
             <h3 id="modalTitle" class="text-xl font-black mb-2">Image Title</h3>
             <div class="img-placeholder-slot rounded-2xl h-64 mb-4 flex items-center justify-center overflow-hidden relative border border-slate-200"><img id="modalImg" src="" alt="Modal View" class="w-full h-full object-cover"></div>
             <p id="modalDesc" class="text-xs text-slate-600 leading-relaxed mb-4">Description detail...</p>
-            <div class="flex items-center justify-between pt-3 border-t border-slate-100"><span class="text-xs font-semibold text-slate-500">Print One Visual Media Slot</span><a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Inquire This Design</a></div>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100"><span class="text-xs font-semibold text-slate-500">Print One Visual Media Slot</span><a href="https://wa.me/263772719284" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Contact</a></div>
         </div>
     </div>
 
@@ -423,13 +534,26 @@
         }
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-        function openImageModal(title, desc, category, imgSrc) {
+        function openImageModal(title, desc, category, imgSrc, clickedEl) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('modalCategoryPill').innerText = category;
             var imgElement = document.getElementById('modalImg');
-            if (imgSrc) { imgElement.src = imgSrc; imgElement.style.display = 'block'; }
-            else { imgElement.src = 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80'; }
+            var finalSrc = imgSrc;
+
+            if (!finalSrc && clickedEl) {
+                var thumbImg = clickedEl.querySelector('img');
+                if (thumbImg && thumbImg.src) finalSrc = thumbImg.src;
+            }
+
+            if (!finalSrc) {
+                finalSrc = 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=1200&q=90';
+            } else if (!imgSrc && finalSrc && finalSrc.indexOf('w=600') !== -1) {
+                finalSrc = finalSrc.replace('w=600', 'w=1200').replace('q=80', 'q=90');
+            }
+
+            imgElement.src = finalSrc;
+            imgElement.style.display = 'block';
             openModal('imageModal');
         }
         function selectServiceForQuote(serviceName) {
@@ -476,6 +600,239 @@
         }
         function handleFormSubmit(e) { e.preventDefault(); alert('Thank you! Your message has been received by Print One sales team. We will call you shortly on +263 772 719 284.'); }
         window.onload = function() { calculateEstimate(); };
+
+        // Modern Hero Particle System
+        (function() {
+            var canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var heroSection = canvas.closest('section');
+            var particles = [];
+            var mouse = { x: null, y: null };
+            var isMobile = window.innerWidth < 768;
+            var particleCount = isMobile ? 50 : 120;
+            var connectionDistance = isMobile ? 80 : 140;
+
+            function resize() {
+                var rect = heroSection.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+
+            function createParticle() {
+                var colors = [
+                    'rgba(255, 255, 255, ',
+                    'rgba(12, 148, 235, ',
+                    'rgba(0, 119, 205, ',
+                    'rgba(56, 189, 248, ',
+                    'rgba(2, 132, 199, '
+                ];
+                var color = colors[Math.floor(Math.random() * colors.length)];
+                var opacity = Math.random() * 0.5 + 0.2;
+                return {
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    radius: Math.random() * 2 + 1,
+                    color: color + opacity + ')',
+                    baseOpacity: opacity
+                };
+            }
+
+            function init() {
+                resize();
+                particles = [];
+                for (var i = 0; i < particleCount; i++) {
+                    particles.push(createParticle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (var i = 0; i < particles.length; i++) {
+                    var p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    
+                    if (mouse.x !== null && mouse.y !== null) {
+                        var dx = mouse.x - p.x;
+                        var dy = mouse.y - p.y;
+                        var dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 150) {
+                            p.x -= dx * 0.01;
+                            p.y -= dy * 0.01;
+                        }
+                    }
+                    
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                }
+                
+                for (var i = 0; i < particles.length; i++) {
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var dx = particles[i].x - particles[j].x;
+                        var dy = particles[i].y - particles[j].y;
+                        var dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < connectionDistance) {
+                            var opacity = (1 - dist / connectionDistance) * 0.2;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+
+            heroSection.addEventListener('mousemove', function(e) {
+                var rect = heroSection.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            heroSection.addEventListener('mouseleave', function() {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            window.addEventListener('resize', function() {
+                isMobile = window.innerWidth < 768;
+                particleCount = isMobile ? 50 : 120;
+                connectionDistance = isMobile ? 80 : 140;
+                init();
+            });
+
+            init();
+            animate();
+        })();
+
+        // Scroll-triggered hero-to-section background transition
+        (function() {
+            var heroSection = document.querySelector('.hero-printing-bg');
+            var aboutSection = document.querySelector('#about-company');
+            var heroOverlay = document.querySelector('.hero-transition-fade');
+            if (!heroSection || !aboutSection || !heroOverlay) return;
+
+            function updateTransition() {
+                var heroRect = heroSection.getBoundingClientRect();
+                var windowHeight = window.innerHeight;
+                var heroBottom = heroRect.bottom;
+                var overlap = Math.max(0, Math.min(1, heroBottom / 160));
+
+                if (heroBottom <= windowHeight && heroBottom > 0) {
+                    var maskOpacity = 1 - overlap;
+                    heroOverlay.style.opacity = maskOpacity;
+                } else if (heroBottom > windowHeight) {
+                    heroOverlay.style.opacity = 1;
+                } else {
+                    heroOverlay.style.opacity = 0;
+                }
+
+                var aboutTop = aboutSection.getBoundingClientRect().top;
+                var aboutVisible = aboutTop < windowHeight * 0.85;
+                if (aboutVisible) {
+                    aboutSection.classList.add('is-visible');
+                } else {
+                    aboutSection.classList.remove('is-visible');
+                }
+            }
+
+            window.addEventListener('scroll', updateTransition, { passive: true });
+            window.addEventListener('resize', updateTransition, { passive: true });
+            updateTransition();
+        })();
+
+        // Comprehensive scroll-triggered animations
+        (function() {
+            var observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -60px 0px',
+                threshold: 0.15
+            };
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var el = entry.target;
+                        el.classList.add('is-visible');
+
+                        // Stagger children if present
+                        var staggerChildren = el.querySelectorAll('.reveal-stagger');
+                        if (staggerChildren.length > 0) {
+                            staggerChildren.forEach(function(child, index) {
+                                setTimeout(function() {
+                                    child.classList.add('is-visible');
+                                }, index * 80);
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all reveal elements
+            var revealElements = document.querySelectorAll(
+                '.section-reveal, .reveal-fade-in, .reveal-slide-left, .reveal-slide-right, .reveal-scale-in, .reveal-stagger'
+            );
+            revealElements.forEach(function(el) {
+                observer.observe(el);
+            });
+
+            // Add hover effect listeners for buttons
+            var buttons = document.querySelectorAll('.btn-hover, a[href^="#"], button');
+            buttons.forEach(function(btn) {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    var targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    var target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Dynamic icon rotation on hover
+            document.querySelectorAll('.glass-card').forEach(function(card) {
+                var icon = card.querySelector('i');
+                if (icon && !icon.closest('.animate-rotate-slow')) {
+                    card.addEventListener('mouseenter', function() {
+                        icon.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                        icon.style.transform = 'scale(1.15) rotate(5deg)';
+                    });
+                    card.addEventListener('mouseleave', function() {
+                        icon.style.transform = 'scale(1) rotate(0deg)';
+                    });
+                }
+            });
+
+            // Initialize visible elements on load
+            setTimeout(function() {
+                revealElements.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+        })();
     </script>
 </body>
 </html>
