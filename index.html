@@ -152,6 +152,47 @@
         /* Section transition smooth scroll */
         html { scroll-behavior: smooth; }
 
+        /* Mobile scroll optimizations */
+        @media (pointer: coarse) {
+            html {
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
+            body {
+                overscroll-behavior-y: none;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-font-smoothing: antialiased;
+                text-size-adjust: 100%;
+            }
+            .section-reveal,
+            .reveal-fade-in,
+            .reveal-slide-left,
+            .reveal-slide-right,
+            .reveal-scale-in,
+            .reveal-stagger {
+                transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transition-duration: 0.6s !important;
+            }
+            .glass-card { transition-duration: 0.25s !important; }
+            .glass-card:hover { transform: translateY(-4px); }
+            .btn-hover { transition-duration: 0.2s !important; }
+            .btn-hover:hover { transform: translateY(-2px); }
+            button, a, [role="button"] {
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         /* Hero content scroll fade */
         .hero-scroll-content {
             transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -1079,26 +1120,29 @@
         (function() {
             var observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -60px 0px',
-                threshold: 0.15
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
             };
 
             var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        var el = entry.target;
-                        el.classList.add('is-visible');
+                var rafId = null;
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(function() {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            var el = entry.target;
+                            el.classList.add('is-visible');
 
-                        // Stagger children if present
-                        var staggerChildren = el.querySelectorAll('.reveal-stagger');
-                        if (staggerChildren.length > 0) {
-                            staggerChildren.forEach(function(child, index) {
-                                setTimeout(function() {
-                                    child.classList.add('is-visible');
-                                }, index * 80);
-                            });
+                            var staggerChildren = el.querySelectorAll('.reveal-stagger');
+                            if (staggerChildren.length > 0) {
+                                staggerChildren.forEach(function(child, index) {
+                                    setTimeout(function() {
+                                        child.classList.add('is-visible');
+                                    }, index * 60);
+                                });
+                            }
                         }
-                    }
+                    });
                 });
             }, observerOptions);
 
@@ -1124,12 +1168,52 @@
                     var targetId = this.getAttribute('href');
                     if (targetId === '#') return;
                     var target = document.querySelector(targetId);
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    if (!target) return;
+                    e.preventDefault();
+                    smoothScrollTo(target, 80);
                 });
             });
+
+            function smoothScrollTo(target, offset) {
+                var isMobile = window.innerWidth < 768;
+                var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (isMobile || reducedMotion) {
+                    var headerOffset = offset || 0;
+                    var elementPosition = target.getBoundingClientRect().top;
+                    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: reducedMotion ? 'auto' : 'smooth' });
+                    return;
+                }
+                var currentPosition = window.pageYOffset;
+                var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - (offset || 0);
+                var distance = targetPosition - currentPosition;
+                var duration = 600;
+                var startTime = null;
+                function step(timestamp) {
+                    if (startTime === null) startTime = timestamp;
+                    var elapsed = timestamp - startTime;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var ease = 1 - Math.pow(1 - progress, 3);
+                    window.scrollTo(0, currentPosition + distance * ease);
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            // Passive scroll handlers with rAF throttling
+            var ticking = false;
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        // Placeholder for future scroll-dependent work without extra listeners
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
 
             // Dynamic icon rotation on hover
             document.querySelectorAll('.glass-card').forEach(function(card) {
